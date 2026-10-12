@@ -9,6 +9,7 @@ This directory contains local Nano release artifacts for pipeline smoke testing:
 - `tokenizer.vocab`: tokenizer vocabulary.
 - `configs/nano.json`: exact Nano config copy.
 - `COMMAND_LOG.md`: reproducibility command log.
+- `INSTALL_USAGE.md`: install, configuration and usage guide for source zip and release assets.
 - `SHA256SUMS`: checksums for release artifacts.
 - `LICENSE`: Apache-2.0 license text.
 - `NOTICE`: project notice.

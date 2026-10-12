@@ -10,6 +10,7 @@ This folder documents the local Nano release package in `releases/nano/`.
 - `RELEASE_CHECKLIST.md`: publication checklist and blockers.
 - `PUBLISH_INPUTS.md`: owner decisions needed before public GitHub release.
 - `USAGE_TERMS.md`: license, intended use and unsupported use.
+- Root `INSTALL_USAGE.md`: install, configuration and usage guide for source zip and release assets.
 - `SECURITY.md`: checkpoint loading and privacy notes.
 
 Published repo: `https://github.com/SincereVirtueDev/achitic-lm`

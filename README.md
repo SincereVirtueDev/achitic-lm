@@ -4,6 +4,7 @@
 
 ## Quick start (Linux / Python 3.10+)
 For the full Nano development environment contract, see `docs/DEVELOPMENT.md`.
+For source-zip installation, configuration and release-asset usage, see `INSTALL_USAGE.md`.
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
