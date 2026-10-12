@@ -1,0 +1,6 @@
+Hà Nội là thủ đô của Việt Nam, một quốc gia nằm ở khu vực Đông Nam Á.
+Mô hình ngôn ngữ học cách dự đoán token tiếp theo từ chuỗi các token trước đó.
+Python là một ngôn ngữ lập trình thường dùng trong khoa học dữ liệu và trí tuệ nhân tạo.
+Máy chủ Linux có thể chạy các ứng dụng mạng, dịch vụ web và hệ thống lưu trữ.
+Transformer sử dụng cơ chế attention để xử lý quan hệ giữa các token trong chuỗi văn bản.
+Huấn luyện mô hình từ đầu đòi hỏi dữ liệu sạch, tài nguyên tính toán và đánh giá độc lập.

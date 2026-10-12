@@ -1,0 +1,9 @@
+AchiticLM
+Copyright 2026 SincereVirtueDev
+
+This product includes AchiticLM source code, documentation, configuration,
+example corpus content, tokenizer artifacts and the scratch-trained Nano
+checkpoint produced for the AchiticLM project.
+
+Unless otherwise stated, the project and Nano release artifacts are licensed
+under the Apache License, Version 2.0.

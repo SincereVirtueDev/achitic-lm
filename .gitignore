@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+.venv/
+github_token.txt
+*.egg-info/
+runs/
+*.bin
+*.model
+*.vocab
+*.pt
+*.gguf

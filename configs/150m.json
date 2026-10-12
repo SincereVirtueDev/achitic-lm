@@ -1,0 +1,9 @@
+{
+  "vocab_size": 24000,
+  "dim": 768,
+  "layers": 12,
+  "heads": 12,
+  "kv_heads": 3,
+  "ffn_dim": 2048,
+  "context": 2048
+}
