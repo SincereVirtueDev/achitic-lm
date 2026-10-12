@@ -1,6 +1,6 @@
 # AchiticLM Nano Usage Terms
 
-Status: READY_FOR_SOURCE_COMMIT
+Status: READY_FOR_GITHUB_PUBLICATION
 
 ## License Summary
 
@@ -43,8 +43,9 @@ authentication token, personal data or user conversation was intentionally used.
 Source code, model architecture, tokenizer implementation, configurations and
 documentation are intended to live in the Git repository.
 
-Release artifacts such as `nano.pt`, `tokenizer.model`, `tokenizer.vocab` and
-checksums are intended to be published as GitHub Release assets for the Nano tag.
+Release artifacts such as `nano.pt`, `tokenizer.model`, `tokenizer.vocab`,
+`SHA256SUMS` and package metadata are intended to be published as GitHub Release
+assets for the Nano tag.
 
 ## No Quality Claim
 

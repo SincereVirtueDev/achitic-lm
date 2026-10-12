@@ -1,6 +1,6 @@
 # AchiticLM Nano Release Docs
 
-Status: READY_FOR_SOURCE_COMMIT
+Status: READY_FOR_GITHUB_PUBLICATION
 
 This folder documents the local Nano release package in `releases/nano/`.
 
@@ -12,4 +12,4 @@ This folder documents the local Nano release package in `releases/nano/`.
 - `USAGE_TERMS.md`: license, intended use and unsupported use.
 - `SECURITY.md`: checkpoint loading and privacy notes.
 
-The package is ready for a source commit before GitHub publication.
+The package is ready for GitHub repository and release publication.

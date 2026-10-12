@@ -1,6 +1,6 @@
 # AchiticLM Nano Release Package
 
-Status: READY_FOR_SOURCE_COMMIT
+Status: READY_FOR_GITHUB_PUBLICATION
 
 This directory contains local Nano release artifacts for pipeline smoke testing:
 
@@ -16,4 +16,4 @@ This directory contains local Nano release artifacts for pipeline smoke testing:
 
 Nano is not a useful chat model. It is a CPU pipeline artifact for environment, model, checkpoint, tokenizer, alignment and export-claim guard verification.
 
-The release package is licensed under Apache-2.0. Source must be committed to an immutable Git snapshot before public publication.
+The release package is licensed under Apache-2.0 and is ready to be published as GitHub Release assets for tag `nano-v0.1.0`.

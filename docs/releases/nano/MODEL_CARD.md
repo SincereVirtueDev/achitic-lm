@@ -1,6 +1,6 @@
 # AchiticLM Nano Model Card
 
-Status: READY_FOR_SOURCE_COMMIT
+Status: READY_FOR_GITHUB_PUBLICATION
 
 ## Model Summary
 
@@ -88,4 +88,5 @@ See `docs/releases/nano/ARTIFACT_MANIFEST.md` and `releases/nano/SHA256SUMS`.
 
 Local source snapshot: `/run/media/thanhnd/DATA_LINUX/AchiticLM/achitic-lm`
 
-Git commit metadata is pending source initialization.
+Source snapshot is available in the local Git repository and is intended to be
+published to `https://github.com/SincereVirtueDev/achitic-lm`.

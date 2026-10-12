@@ -1,6 +1,6 @@
 # AchiticLM Nano Release Checklist
 
-Status: READY_FOR_SOURCE_COMMIT
+Status: READY_FOR_GITHUB_PUBLICATION
 
 - [x] Final Nano checkpoint copied to `releases/nano/nano.pt`.
 - [x] Tokenizer model copied to `releases/nano/tokenizer.model`.
@@ -15,13 +15,15 @@ Status: READY_FOR_SOURCE_COMMIT
 - [x] Known limitations recorded.
 - [x] No GGUF/quantized artifact included.
 - [x] License and usage terms are explicit.
-- [ ] Git commit or immutable source snapshot is available.
+- [x] Git commit or immutable source snapshot is available.
 - [x] Owner publish input checklist recorded in `docs/releases/nano/PUBLISH_INPUTS.md`.
 - [x] Usage terms recorded in `docs/releases/nano/USAGE_TERMS.md`.
 - [x] Release inference smoke has been rerun from `releases/nano/`.
 
-## Blocker
+## Remaining Publication Step
 
-Source has not yet been initialized as a Git repository and committed to an immutable snapshot.
+Create or reuse the public GitHub repository `SincereVirtueDev/achitic-lm`, push
+the `main` branch, then publish Nano package artifacts as GitHub Release assets
+for tag `nano-v0.1.0`.
 
 Owner decisions are recorded in `docs/releases/nano/PUBLISH_INPUTS.md`.

@@ -29,7 +29,7 @@ These are only defaults for review. Do not apply them until the owner confirms.
 - Repository visibility: `public`
 - Release tag: `nano-v0.1.0`
 - Release title: `AchiticLM Nano v0.1.0`
-- Artifact strategy: GitHub Release asset for `nano.pt`; source/docs in Git
+- Artifact strategy: GitHub Release assets for Nano package artifacts; source/docs in Git
 - Code license: Apache-2.0
 - Checkpoint license: Apache-2.0
 
