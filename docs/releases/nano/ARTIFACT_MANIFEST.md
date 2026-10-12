@@ -1,12 +1,14 @@
 # AchiticLM Nano Artifact Manifest
 
-Status: READY_FOR_GITHUB_PUBLICATION
+Status: PUBLISHED
 
 ## Source Reference
 
 - Local source snapshot: `/run/media/thanhnd/DATA_LINUX/AchiticLM/achitic-lm`
 - Date: 2026-10-12
-- Git commit: available in local Git snapshot; publish target `main` and release tag `nano-v0.1.0`
+- GitHub repo: `https://github.com/SincereVirtueDev/achitic-lm`
+- GitHub release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`
+- Release target commit: `c4fef1582cb951306048425c50084a32c4126ee6`
 
 ## Artifacts
 

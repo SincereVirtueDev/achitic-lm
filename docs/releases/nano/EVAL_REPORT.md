@@ -1,6 +1,6 @@
 # AchiticLM Nano Eval Report
 
-Status: READY_FOR_GITHUB_PUBLICATION
+Status: PUBLISHED
 
 Nano evaluation is limited to smoke tests. It does not measure language quality.
 

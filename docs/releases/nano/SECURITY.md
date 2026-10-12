@@ -1,6 +1,6 @@
 # AchiticLM Nano Security Notes
 
-Status: READY_FOR_GITHUB_PUBLICATION
+Status: PUBLISHED
 
 ## Trusted Loading
 

@@ -1,6 +1,6 @@
 # AchiticLM Nano Usage Terms
 
-Status: READY_FOR_GITHUB_PUBLICATION
+Status: PUBLISHED
 
 ## License Summary
 

@@ -1,6 +1,6 @@
 # AchiticLM Nano Model Card
 
-Status: READY_FOR_GITHUB_PUBLICATION
+Status: PUBLISHED
 
 ## Model Summary
 
@@ -88,5 +88,6 @@ See `docs/releases/nano/ARTIFACT_MANIFEST.md` and `releases/nano/SHA256SUMS`.
 
 Local source snapshot: `/run/media/thanhnd/DATA_LINUX/AchiticLM/achitic-lm`
 
-Source snapshot is available in the local Git repository and is intended to be
-published to `https://github.com/SincereVirtueDev/achitic-lm`.
+Source repository: `https://github.com/SincereVirtueDev/achitic-lm`
+
+Nano release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`

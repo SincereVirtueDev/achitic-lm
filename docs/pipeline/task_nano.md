@@ -12,17 +12,17 @@ Architecture rule: dùng đúng AchiticLM Core hiện có. Không đổi `achiti
 
 ## Progress Dashboard
 
-Overall progress: `[xxxxxxxx--] 75%`
+Overall progress: `[xxxxxxxxx-] 87%`
 
-Backlog progress: `9 / 10`
+Backlog progress: `10 / 10`
 
-Stage progress: `6 / 8`
+Stage progress: `7 / 8`
 
-Publication progress: `0 / 1`
+Publication progress: `1 / 1`
 
-Current allowed row: `NANO-PUBLISH-001` is in progress for Apache-2.0 licensing, source snapshot and GitHub publication; `NANO-CLOSE-001` waits.
+Current allowed row: `NANO-CLOSE-001` may be claimed.
 
-Next unlock: `NANO-PUBLISH-001` waits for `NANO-DATA-001`, `NANO-CKPT-001`, and `NANO-EXP-001` PASS. `NANO-CLOSE-001` waits for all Nano rows PASS.
+Next unlock: `NANO-CLOSE-001` waits for all Nano rows PASS and can now start closeout.
 
 ```text
 TODO        [ ] not claimed
@@ -91,7 +91,7 @@ Backlog progress counts `FND-001` through `FND-009` plus `NANO-PUB-001`. If a st
 | [x] | `FND-007` | `NANO-DATA-001` | Codex | 2026-10-12 | released | Nano prepare/tokenizer/encode/train/chat smoke passes |
 | [x] | `FND-008` | `NANO-ALN-001` | Codex | 2026-10-12 | released | SFT mask and DPO response-only tests pass |
 | [x] | `FND-009` | `NANO-EXP-001` | Codex | 2026-10-12 | released | Export docs do not claim verification without llama.cpp |
-| [~] | `NANO-PUB-001` | `NANO-PUBLISH-001` | Codex | 2026-10-12 | active | Apache-2.0 license/usage terms supplied; source snapshot and publication in progress |
+| [x] | `NANO-PUB-001` | `NANO-PUBLISH-001` | Codex | 2026-10-12 | released | Public GitHub repo and Nano release assets published |
 
 ## Stage Board
 
@@ -103,7 +103,7 @@ Backlog progress counts `FND-001` through `FND-009` plus `NANO-PUB-001`. If a st
 | [x] | `NANO-DATA-001` | `NANO-ENV-001` PASS | `FND-006`, `FND-007` | `tests/test_data_tokenizer_cli.py`, `achitic/data.py`, `achitic/tokenizer.py`, `achitic/cli.py`, `configs/nano.json`, optional `scripts/nano_smoke.sh` | data/tokenizer tests, Nano smoke, full pytest passed |
 | [x] | `NANO-ALN-001` | `NANO-MODEL-001` PASS | `FND-008` | `tests/test_alignment.py`, `achitic/alignment.py` only if bug proven | alignment tests and full pytest passed |
 | [x] | `NANO-EXP-001` | `NANO-ENV-001` PASS | `FND-009` | `README.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `docs/pipeline/06_EXPORT_EDGE.md`, optional `tests/test_export_guard.py` | export claim guard and full pytest passed |
-| [~] | `NANO-PUBLISH-001` | `NANO-DATA-001`, `NANO-CKPT-001`, `NANO-EXP-001` PASS | `NANO-PUB-001` | `LICENSE`, `NOTICE`, `docs/releases/nano/*`, `releases/nano/*`, optional `scripts/nano_release.sh` | Apache-2.0 license/usage terms supplied; source snapshot and publication in progress |
+| [x] | `NANO-PUBLISH-001` | `NANO-DATA-001`, `NANO-CKPT-001`, `NANO-EXP-001` PASS | `NANO-PUB-001` | `LICENSE`, `NOTICE`, `docs/releases/nano/*`, `releases/nano/*`, optional `scripts/nano_release.sh` | Public GitHub repo and Nano release assets published; checksum, chat smoke and full pytest passed |
 | [ ] | `NANO-CLOSE-001` | all above PASS | closeout | `docs/pipeline/nano/07_NANO_CLOSEOUT.md`, `docs/pipeline/01_FOUNDATION_SMOKE.md`, optional `docs/pipeline/BACKLOG.md` | full pytest, Nano smoke, release package evidence |
 
 ## Task Details
@@ -644,6 +644,44 @@ Known risks:
 ## Evidence Log
 
 Append one block per completed row. Do not delete older evidence.
+
+```text
+Row: NANO-PUBLISH-001
+Backlog IDs: NANO-PUB-001
+Mark: [x] PASS
+Owner: Codex
+Files changed: LICENSE; NOTICE; README.md; .gitignore; pyproject.toml; docs/releases/nano/*; releases/nano/README.md; releases/nano/COMMAND_LOG.md; releases/nano/SHA256SUMS; releases/nano/LICENSE; releases/nano/NOTICE; releases/nano/USAGE_TERMS.md; docs/pipeline/task_nano.md
+Public repo: https://github.com/SincereVirtueDev/achitic-lm
+Nano release: https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0
+Release target commit: c4fef1582cb951306048425c50084a32c4126ee6
+Release asset names verified from GitHub API: COMMAND_LOG.md; LICENSE; nano.json; nano.pt; NOTICE; README.md; SHA256SUMS; tokenizer.model; tokenizer.vocab; USAGE_TERMS.md
+Checksums:
+- f067c5f9dad26cd78d2d89b9a3347444039d0dda53e8230b351c0a28958e761b  releases/nano/nano.pt
+- b1dc236a8e22c68a7201fe50dcf6ff150e494b9bea49f5f971400b1a830b0bc6  releases/nano/tokenizer.model
+- d893d94f665232759a71adcceb4616b3426b97cc952f9d45e5e26c5d35f3588f  releases/nano/tokenizer.vocab
+- 802a2968e0b2c70ab1c2531c80cec2f9d46bd79a8e669b491ae74f4b7136be72  releases/nano/configs/nano.json
+- fb4dd0fc3bd27268048ad85c119c5e4744d6310c9c5c6fd75e90447a93b45d82  releases/nano/COMMAND_LOG.md
+- bc0ce94219893861338a2f3851ad199629c03996f94efe09fb2d3f2b14ea3747  releases/nano/README.md
+- 7505b489cc8ad7f16ba08343184320f1583303cfacdb9121b9b756bc073df1ab  releases/nano/LICENSE
+- 6caa26531c1646e81167332770fda34aa34264c533131e2ec10fdf8c21b122ed  releases/nano/NOTICE
+- f0f01fe4f29f50b2539cd9b83510624749c1e6b7c66bdf109da258cd2ad40c83  releases/nano/USAGE_TERMS.md
+Commands run:
+- sha256sum -c releases/nano/SHA256SUMS
+- .venv/bin/python -m achitic.cli chat --checkpoint releases/nano/nano.pt --tokenizer releases/nano/tokenizer.model --prompt "Xin chao" --tokens 16
+- .venv/bin/python -m pytest -q
+- git --git-dir=/tmp/achitic-lm.git --work-tree=/run/media/thanhnd/DATA_LINUX/AchiticLM/achitic-lm push -u origin main
+- GitHub API create repo/release and upload assets
+- GitHub API release asset list verification
+Results:
+- checksum verification passed for all release package files
+- release chat smoke passed from package artifact paths
+- full pytest passed: 25 passed in 2.96s
+- public repo created and main branch pushed
+- GitHub Release nano-v0.1.0 created as prerelease
+- 10 release assets uploaded and verified from GitHub API
+Known risks: Nano remains a 3-step scratch smoke artifact, not a quality model; GGUF/quantization remains unverified until pinned llama.cpp load-and-generate evidence exists.
+Next allowed row: NANO-CLOSE-001 may be claimed.
+```
 
 ```text
 Row: NANO-PUBLISH-001

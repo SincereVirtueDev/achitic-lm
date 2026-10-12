@@ -1,6 +1,6 @@
 # AchiticLM Nano Release Checklist
 
-Status: READY_FOR_GITHUB_PUBLICATION
+Status: PUBLISHED
 
 - [x] Final Nano checkpoint copied to `releases/nano/nano.pt`.
 - [x] Tokenizer model copied to `releases/nano/tokenizer.model`.
@@ -19,11 +19,15 @@ Status: READY_FOR_GITHUB_PUBLICATION
 - [x] Owner publish input checklist recorded in `docs/releases/nano/PUBLISH_INPUTS.md`.
 - [x] Usage terms recorded in `docs/releases/nano/USAGE_TERMS.md`.
 - [x] Release inference smoke has been rerun from `releases/nano/`.
+- [x] Public GitHub repository exists: `https://github.com/SincereVirtueDev/achitic-lm`.
+- [x] `main` branch pushed.
+- [x] GitHub Release `nano-v0.1.0` created.
+- [x] Nano package artifacts uploaded as GitHub Release assets.
 
-## Remaining Publication Step
+## Publication
 
-Create or reuse the public GitHub repository `SincereVirtueDev/achitic-lm`, push
-the `main` branch, then publish Nano package artifacts as GitHub Release assets
-for tag `nano-v0.1.0`.
+Published repo: `https://github.com/SincereVirtueDev/achitic-lm`
+
+Published Nano release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`
 
 Owner decisions are recorded in `docs/releases/nano/PUBLISH_INPUTS.md`.

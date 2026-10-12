@@ -1,6 +1,6 @@
 # AchiticLM Nano Publish Inputs
 
-Status: OWNER_INPUT_SUPPLIED
+Status: PUBLISHED
 
 This file lists the human-owned decisions required before `NANO-PUBLISH-001`
 can move from `BLOCKED` to `PASS`.
