@@ -690,7 +690,7 @@ Files changed: LICENSE; NOTICE; README.md; .gitignore; pyproject.toml; docs/rele
 Public repo: https://github.com/SincereVirtueDev/achitic-lm
 Nano release: https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0
 Release target commit: c4fef1582cb951306048425c50084a32c4126ee6
-Release asset names verified from GitHub API: COMMAND_LOG.md; LICENSE; nano.json; nano.pt; NOTICE; README.md; SHA256SUMS; tokenizer.model; tokenizer.vocab; USAGE_TERMS.md
+Release asset names verified from GitHub API: COMMAND_LOG.md; INSTALL_USAGE.md; LICENSE; nano.json; nano.pt; NOTICE; README.md; SHA256SUMS; tokenizer.model; tokenizer.vocab; USAGE_TERMS.md
 Checksums:
 - f067c5f9dad26cd78d2d89b9a3347444039d0dda53e8230b351c0a28958e761b  releases/nano/nano.pt
 - b1dc236a8e22c68a7201fe50dcf6ff150e494b9bea49f5f971400b1a830b0bc6  releases/nano/tokenizer.model
@@ -714,7 +714,7 @@ Results:
 - full pytest passed: 25 passed in 2.96s
 - public repo created and main branch pushed
 - GitHub Release nano-v0.1.0 created as prerelease
-- 10 release assets uploaded and verified from GitHub API
+- 11 release assets uploaded and verified from GitHub API after adding INSTALL_USAGE.md
 Known risks: Nano remains a 3-step scratch smoke artifact, not a quality model; GGUF/quantization remains unverified until pinned llama.cpp load-and-generate evidence exists.
 Next allowed row: NANO-CLOSE-001 may be claimed.
 ```

@@ -23,6 +23,8 @@ Status: PUBLISHED
 - [x] `main` branch pushed.
 - [x] GitHub Release `nano-v0.1.0` created.
 - [x] Nano package artifacts uploaded as GitHub Release assets.
+- [x] `INSTALL_USAGE.md` added to source zip and release assets.
+- [x] Release asset checksum manifest updated after adding `INSTALL_USAGE.md`.
 
 ## Publication
 

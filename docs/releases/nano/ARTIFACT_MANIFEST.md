@@ -8,7 +8,8 @@ Status: PUBLISHED
 - Date: 2026-10-12
 - GitHub repo: `https://github.com/SincereVirtueDev/achitic-lm`
 - GitHub release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`
-- Release target commit: `c4fef1582cb951306048425c50084a32c4126ee6`
+- Release tag: `nano-v0.1.0`
+- Source zip includes root `INSTALL_USAGE.md` for installation, configuration and usage.
 
 ## Artifacts
 
@@ -18,8 +19,14 @@ Status: PUBLISHED
 | `releases/nano/tokenizer.model` | `596172` | `b1dc236a8e22c68a7201fe50dcf6ff150e494b9bea49f5f971400b1a830b0bc6` |
 | `releases/nano/tokenizer.vocab` | `151055` | `d893d94f665232759a71adcceb4616b3426b97cc952f9d45e5e26c5d35f3588f` |
 | `releases/nano/configs/nano.json` | `121` | `802a2968e0b2c70ab1c2531c80cec2f9d46bd79a8e669b491ae74f4b7136be72` |
-| `releases/nano/COMMAND_LOG.md` | `2011` | `01e1b41b5d061aab270a31bf7c3d3b5caf71873512f3a30e5098fb456941b33f` |
-| `releases/nano/README.md` | `756` | `f73518c87db131b6031f023509bf4d90d3cd4e6f56e3c67a46375605d3a247ec` |
+| `releases/nano/COMMAND_LOG.md` | `2055` | `fb4dd0fc3bd27268048ad85c119c5e4744d6310c9c5c6fd75e90447a93b45d82` |
+| `releases/nano/README.md` | `955` | `b9655628a462514a64fae22ecdf1b754a8ffbd5d5969a7cd564b21de02eccce4` |
+| `releases/nano/INSTALL_USAGE.md` | `3896` | `4780123cd48281b1b2703dda1d31f9518648ca67aa22777a2ac2f262ee840609` |
+| `releases/nano/LICENSE` | `10254` | `7505b489cc8ad7f16ba08343184320f1583303cfacdb9121b9b756bc073df1ab` |
+| `releases/nano/NOTICE` | `355` | `6caa26531c1646e81167332770fda34aa34264c533131e2ec10fdf8c21b122ed` |
+| `releases/nano/USAGE_TERMS.md` | `1854` | `f0f01fe4f29f50b2539cd9b83510624749c1e6b7c66bdf109da258cd2ad40c83` |
+
+Checksum manifest: `releases/nano/SHA256SUMS`, `930` bytes.
 
 ## Environment
 

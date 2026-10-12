@@ -71,7 +71,7 @@ Commit or artifact ref: https://github.com/SincereVirtueDev/achitic-lm/releases/
 Evidence:
 - pytest: .venv/bin/python -m pytest -q -> 25 passed in 2.82s
 - Nano smoke train: prepare 6 docs, tokenizer vocab 8000, encode 131 tokens, train runs/nano.pt step 3, chat smoke passed
-- Release package: sha256sum -c releases/nano/SHA256SUMS passed; release chat smoke passed; GitHub Release nano-v0.1.0 published with 10 assets
+- Release package: sha256sum -c releases/nano/SHA256SUMS passed; release chat smoke passed; GitHub Release nano-v0.1.0 published with 11 assets including INSTALL_USAGE.md
 - RoPE/GQA/checkpoint tests: tests/test_model.py and tests/test_checkpoint.py pass; checkpoint resume semantics documented in docs/CHECKPOINTS.md
 - Data/tokenizer guard: tests/test_data_tokenizer_cli.py pass; tokenizer/config mismatch fails clearly
 - Alignment guard: tests/test_alignment.py pass for SFT mask and DPO response-only scoring
