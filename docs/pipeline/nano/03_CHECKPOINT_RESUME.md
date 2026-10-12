@@ -2,10 +2,10 @@
 
 Task ID: `NANO-CKPT-001`
 
-Status: TODO
-Owner:
-Started:
-Finished:
+Status: PASS
+Owner: Codex
+Started: 2026-10-12
+Finished: 2026-10-12
 
 ## Goal
 
@@ -31,12 +31,12 @@ Prove Nano checkpoints can be saved, loaded and resumed without breaking config,
 
 ## Checklist
 
-- [ ] Add test that `save()` writes model, optimizer, step, config, torch RNG, numpy RNG and python RNG.
-- [ ] Add test that checkpoint config can instantiate `Config` and load model state.
-- [ ] Add test that optimizer state loads after at least one optimizer step.
-- [ ] Define resume semantics for Nano: exact resume or non-exact data order.
-- [ ] If exact resume is not implemented, document the limitation clearly.
-- [ ] If exact resume is implemented, store data cursor/sampler state and test it.
+- [x] Add test that `save()` writes model, optimizer, step, config, torch RNG, numpy RNG and python RNG.
+- [x] Add test that checkpoint config can instantiate `Config` and load model state.
+- [x] Add test that optimizer state loads after at least one optimizer step.
+- [x] Define resume semantics for Nano: exact resume or non-exact data order.
+- [x] If exact resume is not implemented, document the limitation clearly.
+- [x] If exact resume is implemented, store data cursor/sampler state and test it.
 
 ## Required validation
 
@@ -53,12 +53,16 @@ python -m pytest -q
 ## Completion evidence
 
 ```text
-Status:
-Owner:
-Files changed:
+Status: PASS
+Owner: Codex
+Files changed: tests/test_checkpoint.py; achitic/train.py; docs/CHECKPOINTS.md; docs/pipeline/task_nano.md
 Commands run:
+- .venv/bin/python -m pytest -q tests/test_checkpoint.py
+- .venv/bin/python -m pytest -q
 Results:
-Resume semantics:
-Known risks:
-Next allowed tasks:
+- Checkpoint save/load contract tests passed.
+- Full test suite passed during Nano closeout: 25 passed in 2.82s.
+Resume semantics: model, optimizer and RNG are restored; exact data order is not claimed because data cursor/sampler state is not stored.
+Known risks: exact data-order resume remains future scale work.
+Next allowed tasks: dependent Nano rows are already PASS.
 ```

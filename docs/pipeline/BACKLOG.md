@@ -6,6 +6,8 @@ Backlog này là danh sách task có thể chia cho nhiều model. Mỗi task ph
 
 Task cụ thể cho mức Nano nằm trong `docs/pipeline/nano/`. Hoàn tất Nano trước, rồi mới mở Tiny và Data/Tokenizer.
 
+Status: PASS on 2026-10-12. Evidence is recorded in `docs/pipeline/task_nano.md`, `docs/pipeline/nano/07_NANO_CLOSEOUT.md`, `docs/pipeline/01_FOUNDATION_SMOKE.md` and the public Nano release `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`.
+
 | ID | Phase | Task | Done when |
 | --- | --- | --- | --- |
 | `FND-001` | 1 | Chuẩn hóa dev environment docs | Có command setup và dependency notes chạy được |

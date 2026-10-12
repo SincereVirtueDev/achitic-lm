@@ -2,10 +2,10 @@
 
 Task ID: `NANO-ALN-001`
 
-Status: TODO
-Owner:
-Started:
-Finished:
+Status: PASS
+Owner: Codex
+Started: 2026-10-12
+Finished: 2026-10-12
 
 ## Goal
 
@@ -31,12 +31,12 @@ Keep SFT/DPO reference code safe enough for Nano by testing prompt masking and r
 
 ## Checklist
 
-- [ ] Add test for `sequence_logprob()` shape and finite output.
-- [ ] Add response-only scoring test: prompt-only positions must not be included in returned sum.
-- [ ] Add invalid sequence length test for empty prompt or context overflow.
-- [ ] Add SFT masking regression test showing prompt tokens are set to `-100`.
-- [ ] Keep alignment tests CPU-only and small.
-- [ ] Document that this is not a production alignment pipeline.
+- [x] Add test for `sequence_logprob()` shape and finite output.
+- [x] Add response-only scoring test: prompt-only positions must not be included in returned sum.
+- [x] Add invalid sequence length test for empty prompt or context overflow.
+- [x] Add SFT masking regression test showing prompt tokens are set to `-100`.
+- [x] Keep alignment tests CPU-only and small.
+- [x] Document that this is not a production alignment pipeline.
 
 ## Required validation
 
@@ -53,11 +53,15 @@ python -m pytest -q
 ## Completion evidence
 
 ```text
-Status:
-Owner:
-Files changed:
+Status: PASS
+Owner: Codex
+Files changed: tests/test_alignment.py; docs/pipeline/task_nano.md
 Commands run:
+- .venv/bin/python -m pytest -q tests/test_alignment.py
+- .venv/bin/python -m pytest -q
 Results:
-Known risks:
-Next allowed tasks:
+- SFT mask and DPO response-only tests passed.
+- Full test suite passed during Nano closeout: 25 passed in 2.82s.
+Known risks: alignment code remains a CPU reference loop, not a production alignment pipeline.
+Next allowed tasks: NANO-EXP-001, NANO-PUBLISH-001 and NANO-CLOSE-001 are now PASS.
 ```

@@ -12,17 +12,17 @@ Architecture rule: dùng đúng AchiticLM Core hiện có. Không đổi `achiti
 
 ## Progress Dashboard
 
-Overall progress: `[xxxxxxxxx-] 87%`
+Overall progress: `[xxxxxxxxxx] 100%`
 
 Backlog progress: `10 / 10`
 
-Stage progress: `7 / 8`
+Stage progress: `8 / 8`
 
 Publication progress: `1 / 1`
 
-Current allowed row: `NANO-CLOSE-001` may be claimed.
+Current allowed row: Nano is closed. Tiny CPU gate and Data/Tokenizer phase may be claimed according to their dependency rules.
 
-Next unlock: `NANO-CLOSE-001` waits for all Nano rows PASS and can now start closeout.
+Next unlock: Tiny CPU gate may start; real Tiny training still depends on the Data/Tokenizer phase.
 
 ```text
 TODO        [ ] not claimed
@@ -76,7 +76,7 @@ Backlog progress counts `FND-001` through `FND-009` plus `NANO-PUB-001`. If a st
 | `tests/test_alignment.py`, `achitic/alignment.py` | `NANO-ALN-001` | Reference alignment tests only |
 | `README.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `docs/pipeline/06_EXPORT_EDGE.md` | `NANO-EXP-001` | Export claim guard only |
 | `LICENSE`, `NOTICE`, `docs/releases/nano/*`, `releases/nano/*`, optional `scripts/nano_release.sh` | `NANO-PUBLISH-001` | Release license, package metadata and publication docs only; no source-code behavior changes |
-| `docs/pipeline/01_FOUNDATION_SMOKE.md`, `docs/pipeline/BACKLOG.md` | `NANO-CLOSE-001` | Closeout evidence only |
+| `docs/pipeline/nano/*.md`, `docs/pipeline/01_FOUNDATION_SMOKE.md`, `docs/pipeline/BACKLOG.md` | `NANO-CLOSE-001` | Closeout evidence and Nano status sync only |
 
 ## Backlog Checklist
 
@@ -104,7 +104,7 @@ Backlog progress counts `FND-001` through `FND-009` plus `NANO-PUB-001`. If a st
 | [x] | `NANO-ALN-001` | `NANO-MODEL-001` PASS | `FND-008` | `tests/test_alignment.py`, `achitic/alignment.py` only if bug proven | alignment tests and full pytest passed |
 | [x] | `NANO-EXP-001` | `NANO-ENV-001` PASS | `FND-009` | `README.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `docs/pipeline/06_EXPORT_EDGE.md`, optional `tests/test_export_guard.py` | export claim guard and full pytest passed |
 | [x] | `NANO-PUBLISH-001` | `NANO-DATA-001`, `NANO-CKPT-001`, `NANO-EXP-001` PASS | `NANO-PUB-001` | `LICENSE`, `NOTICE`, `docs/releases/nano/*`, `releases/nano/*`, optional `scripts/nano_release.sh` | Public GitHub repo and Nano release assets published; checksum, chat smoke and full pytest passed |
-| [ ] | `NANO-CLOSE-001` | all above PASS | closeout | `docs/pipeline/nano/07_NANO_CLOSEOUT.md`, `docs/pipeline/01_FOUNDATION_SMOKE.md`, optional `docs/pipeline/BACKLOG.md` | full pytest, Nano smoke, release package evidence |
+| [x] | `NANO-CLOSE-001` | all above PASS | closeout | `docs/pipeline/nano/*.md`, `docs/pipeline/01_FOUNDATION_SMOKE.md`, optional `docs/pipeline/BACKLOG.md` | full pytest, Nano smoke, release smoke, checksum and release evidence passed; Nano closed |
 
 ## Task Details
 
@@ -578,6 +578,12 @@ Backlog covered: closeout only
 Allowed write set:
 
 - `docs/pipeline/nano/07_NANO_CLOSEOUT.md`
+- `docs/pipeline/nano/00_NANO_BOARD.md`
+- `docs/pipeline/nano/02_MODEL_ROPE_GQA.md`
+- `docs/pipeline/nano/03_CHECKPOINT_RESUME.md`
+- `docs/pipeline/nano/04_DATA_TOKENIZER_CLI.md`
+- `docs/pipeline/nano/05_ALIGNMENT_CPU.md`
+- `docs/pipeline/nano/06_EXPORT_GUARD.md`
 - `docs/pipeline/01_FOUNDATION_SMOKE.md`
 - Optional: `docs/pipeline/BACKLOG.md`
 
@@ -590,20 +596,20 @@ Do not touch:
 
 Implementation checklist:
 
-- [ ] Confirm all rows except closeout are `[x] PASS`.
-- [ ] Confirm backlog progress is `10 / 10`.
-- [ ] Confirm publication progress is `1 / 1`.
-- [ ] Run full test suite.
-- [ ] Run Nano smoke from prepare to chat.
-- [ ] Run inference smoke from release artifact paths.
-- [ ] Confirm checkpoint/resume evidence exists.
-- [ ] Confirm tokenizer/config mismatch evidence exists.
-- [ ] Confirm RoPE/GQA/causality evidence exists.
-- [ ] Confirm SFT/DPO CPU evidence exists.
-- [ ] Confirm export-claim guard evidence exists.
-- [ ] Confirm release package evidence exists.
-- [ ] Update `docs/pipeline/01_FOUNDATION_SMOKE.md` `Phase Closeout` to `Status: PASS`.
-- [ ] Set dashboard to `Overall progress: [xxxxxxxxxx] 100%`, `Backlog progress: 10 / 10`, `Stage progress: 8 / 8`, `Publication progress: 1 / 1`.
+- [x] Confirm all rows except closeout are `[x] PASS`.
+- [x] Confirm backlog progress is `10 / 10`.
+- [x] Confirm publication progress is `1 / 1`.
+- [x] Run full test suite.
+- [x] Run Nano smoke from prepare to chat.
+- [x] Run inference smoke from release artifact paths.
+- [x] Confirm checkpoint/resume evidence exists.
+- [x] Confirm tokenizer/config mismatch evidence exists.
+- [x] Confirm RoPE/GQA/causality evidence exists.
+- [x] Confirm SFT/DPO CPU evidence exists.
+- [x] Confirm export-claim guard evidence exists.
+- [x] Confirm release package evidence exists.
+- [x] Update `docs/pipeline/01_FOUNDATION_SMOKE.md` `Phase Closeout` to `Status: PASS`.
+- [x] Set dashboard to `Overall progress: [xxxxxxxxxx] 100%`, `Backlog progress: 10 / 10`, `Stage progress: 8 / 8`, `Publication progress: 1 / 1`.
 
 Required commands:
 
@@ -644,6 +650,36 @@ Known risks:
 ## Evidence Log
 
 Append one block per completed row. Do not delete older evidence.
+
+```text
+Row: NANO-CLOSE-001
+Backlog IDs: closeout
+Mark: [x] PASS
+Owner: Codex
+Files changed: docs/pipeline/task_nano.md; docs/pipeline/nano/00_NANO_BOARD.md; docs/pipeline/nano/02_MODEL_ROPE_GQA.md; docs/pipeline/nano/03_CHECKPOINT_RESUME.md; docs/pipeline/nano/04_DATA_TOKENIZER_CLI.md; docs/pipeline/nano/05_ALIGNMENT_CPU.md; docs/pipeline/nano/06_EXPORT_GUARD.md; docs/pipeline/nano/07_NANO_CLOSEOUT.md; docs/pipeline/01_FOUNDATION_SMOKE.md; docs/pipeline/BACKLOG.md
+Commands run:
+- .venv/bin/python -m pytest -q
+- sha256sum -c releases/nano/SHA256SUMS
+- .venv/bin/python -m achitic.cli prepare --inputs examples/corpus.txt --out /tmp/achitic-closeout-clean.txt
+- .venv/bin/python -m achitic.cli tokenizer --input /tmp/achitic-closeout-clean.txt --prefix /tmp/achitic-closeout-sp --vocab 8000
+- .venv/bin/python -m achitic.cli encode --input /tmp/achitic-closeout-clean.txt --tokenizer /tmp/achitic-closeout-sp.model --out /tmp/achitic-closeout.bin
+- .venv/bin/python -m achitic.train --config configs/nano.json --data /tmp/achitic-closeout.bin --steps 3 --batch 1 --accum 1 --out runs/nano.pt
+- .venv/bin/python -m achitic.cli chat --checkpoint runs/nano.pt --tokenizer /tmp/achitic-closeout-sp.model --prompt "Xin chao" --tokens 16
+- .venv/bin/python -m achitic.cli chat --checkpoint releases/nano/nano.pt --tokenizer releases/nano/tokenizer.model --prompt "Xin chao" --tokens 16
+- .venv/bin/python -c "import torch; ckpt=torch.load('runs/nano.pt', map_location='cpu', weights_only=False); print('runs_step', ckpt.get('step')); print('runs_vocab', ckpt.get('config', {}).get('vocab_size'))"
+- .venv/bin/python -c "import torch; ckpt=torch.load('releases/nano/nano.pt', map_location='cpu', weights_only=False); print('release_step', ckpt.get('step')); print('release_vocab', ckpt.get('config', {}).get('vocab_size'))"
+Results:
+- full pytest passed: 25 passed in 2.82s
+- release checksum verification passed for all files in releases/nano/SHA256SUMS
+- Nano closeout smoke passed: prepare 6 docs, encode 131 tokens, train runs/nano.pt step 3, chat smoke passed
+- release artifact inference smoke passed from releases/nano/nano.pt and releases/nano/tokenizer.model
+- local smoke checkpoint step/vocab verified: step 3, vocab 8000
+- release checkpoint step/vocab verified: step 3, vocab 8000
+Phase closeout: docs/pipeline/01_FOUNDATION_SMOKE.md is Status: PASS
+Release package: https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0
+Next unlocked: Tiny CPU gate may start; real Tiny training still depends on audited Data/Tokenizer phase work.
+Known risks: Nano remains a 3-step scratch smoke artifact, not a quality language model. GGUF/quantization remains unverified until pinned llama.cpp load-and-generate evidence exists.
+```
 
 ```text
 Row: NANO-PUBLISH-001

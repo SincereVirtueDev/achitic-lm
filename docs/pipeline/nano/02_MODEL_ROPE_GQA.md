@@ -2,10 +2,10 @@
 
 Task ID: `NANO-MODEL-001`
 
-Status: TODO
-Owner:
-Started:
-Finished:
+Status: PASS
+Owner: Codex
+Started: 2026-10-12
+Finished: 2026-10-12
 
 ## Goal
 
@@ -32,13 +32,13 @@ Make the shared architecture baseline trustworthy on CPU before Tiny or larger t
 
 ## Checklist
 
-- [ ] Add/keep forward, backward and generation smoke on CPU.
-- [ ] Add deterministic causality test: changing future token must not affect earlier logits.
-- [ ] Add RoPE test for shape and dtype preservation.
-- [ ] Add GQA valid config test: `heads % kv_heads == 0`.
-- [ ] Add GQA invalid config test: invalid `heads`/`kv_heads` raises.
-- [ ] Add tied embedding/output assertion.
-- [ ] Keep tests small enough for CPU.
+- [x] Add/keep forward, backward and generation smoke on CPU.
+- [x] Add deterministic causality test: changing future token must not affect earlier logits.
+- [x] Add RoPE test for shape and dtype preservation.
+- [x] Add GQA valid config test: `heads % kv_heads == 0`.
+- [x] Add GQA invalid config test: invalid `heads`/`kv_heads` raises.
+- [x] Add tied embedding/output assertion.
+- [x] Keep tests small enough for CPU.
 
 ## Required validation
 
@@ -55,11 +55,15 @@ python -m pytest -q
 ## Completion evidence
 
 ```text
-Status:
-Owner:
-Files changed:
+Status: PASS
+Owner: Codex
+Files changed: tests/test_model.py; docs/pipeline/task_nano.md
 Commands run:
+- .venv/bin/python -m pytest -q tests/test_model.py
+- .venv/bin/python -m pytest -q
 Results:
-Known risks:
-Next allowed tasks:
+- RoPE, causality, tied weight and GQA tests passed.
+- Full test suite passed during Nano closeout: 25 passed in 2.82s.
+Known risks: none for Nano CPU architecture gate.
+Next allowed tasks: NANO-CKPT-001, NANO-DATA-001, NANO-ALN-001 and NANO-EXP-001 are already PASS.
 ```

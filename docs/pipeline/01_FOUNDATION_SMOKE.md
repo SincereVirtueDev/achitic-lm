@@ -64,13 +64,17 @@ Các model này có thể chạy song song nếu không sửa cùng file. Ngư�
 ## Phase Closeout
 
 ```text
-Status: NOT_STARTED
-Closed by:
-Date:
-Commit or artifact ref:
+Status: PASS
+Closed by: Codex
+Date: 2026-10-12
+Commit or artifact ref: https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0
 Evidence:
-- pytest:
-- Nano smoke train:
-- RoPE/GQA/checkpoint tests:
-Notes:
+- pytest: .venv/bin/python -m pytest -q -> 25 passed in 2.82s
+- Nano smoke train: prepare 6 docs, tokenizer vocab 8000, encode 131 tokens, train runs/nano.pt step 3, chat smoke passed
+- Release package: sha256sum -c releases/nano/SHA256SUMS passed; release chat smoke passed; GitHub Release nano-v0.1.0 published with 10 assets
+- RoPE/GQA/checkpoint tests: tests/test_model.py and tests/test_checkpoint.py pass; checkpoint resume semantics documented in docs/CHECKPOINTS.md
+- Data/tokenizer guard: tests/test_data_tokenizer_cli.py pass; tokenizer/config mismatch fails clearly
+- Alignment guard: tests/test_alignment.py pass for SFT mask and DPO response-only scoring
+- Export guard: tests/test_export_guard.py pass; GGUF/quantization remains experimental until pinned llama.cpp load-and-generate
+Notes: Nano is closed as a publishable 3-step scratch pipeline artifact, not as a quality language model. Tiny CPU tasks may start; real Tiny training still depends on audited Data/Tokenizer phase work.
 ```

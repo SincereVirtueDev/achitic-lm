@@ -19,13 +19,13 @@ Model-level task board: `docs/pipeline/task_nano.md`. Dùng file này để clai
 | Mark | Task file | Depends on | Parallel group | Primary write set |
 | --- | --- | --- | --- | --- |
 | [x] | `01_ENV_BASELINE.md` | none | A | setup docs, this task file |
-| [ ] | `02_MODEL_ROPE_GQA.md` | `01_ENV_BASELINE` | B | model tests, `achitic/model.py` only if bug proven |
-| [ ] | `03_CHECKPOINT_RESUME.md` | `01_ENV_BASELINE` | C | checkpoint tests, `achitic/train.py` |
-| [ ] | `04_DATA_TOKENIZER_CLI.md` | `01_ENV_BASELINE` | D | data/tokenizer/CLI tests, Nano smoke |
-| [ ] | `05_ALIGNMENT_CPU.md` | `02_MODEL_ROPE_GQA` | E | alignment tests |
-| [ ] | `06_EXPORT_GUARD.md` | `01_ENV_BASELINE` | F | docs/export claim guard |
-| [ ] | `../task_nano.md#NANO-PUBLISH-001` | pipeline rows PASS | R | `docs/releases/nano/*`, optional release script |
-| [ ] | `07_NANO_CLOSEOUT.md` | all above and publish PASS | Z | closeout docs only |
+| [x] | `02_MODEL_ROPE_GQA.md` | `01_ENV_BASELINE` | B | model tests, `achitic/model.py` only if bug proven |
+| [x] | `03_CHECKPOINT_RESUME.md` | `01_ENV_BASELINE` | C | checkpoint tests, `achitic/train.py` |
+| [x] | `04_DATA_TOKENIZER_CLI.md` | `01_ENV_BASELINE` | D | data/tokenizer/CLI tests, Nano smoke |
+| [x] | `05_ALIGNMENT_CPU.md` | `02_MODEL_ROPE_GQA` | E | alignment tests |
+| [x] | `06_EXPORT_GUARD.md` | `01_ENV_BASELINE` | F | docs/export claim guard |
+| [x] | `../task_nano.md#NANO-PUBLISH-001` | pipeline rows PASS | R | `docs/releases/nano/*`, optional release script |
+| [x] | `07_NANO_CLOSEOUT.md` | all above and publish PASS | Z | closeout docs only |
 
 Groups B, C, D and F may run in parallel after `01_ENV_BASELINE` PASS because their write sets are separate. Group E waits for model tests. Group R waits for checkpoint/data/export evidence. Group Z is exclusive.
 
