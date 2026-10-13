@@ -51,10 +51,10 @@ New or refreshed package docs:
 
 | Path | SHA256 |
 | --- | --- |
-| `releases/nano/README.md` | `831f9e6f487bab17b09d2f83f81d873d5876994f318a7e376a44f108904f51de` |
+| `releases/nano/README.md` | `e4c964b825a52fecdd78b495b3c5f4d4bd2bdafb991e892cc803b9e2594d1665` |
 | `releases/nano/ISO_TECHNICAL_SPEC.md` | `2bda1458468b088813da67774ed736afce662bb8c4d1d294e44049d22b158657` |
-| `releases/nano/RELEASE_NOTES.md` | `d60b031679349c697b4ed982d7102bddf500d7a310624c9c5b0b1fa254a0f99a` |
-| `releases/nano/SHA256SUMS` | `1236fb0fabd6d2a29ae42481dee4e96ee8a0e9c8edd81b1cf13d8740565a58a0` |
+| `releases/nano/RELEASE_NOTES.md` | `7945875cbd47315f1bb1180584af38133034acddb915d91e16b2c430ad0a19b5` |
+| `releases/nano/SHA256SUMS` | `9425b9614137a5cecb0b2bd4bdf162487dc0fc81b111863e41e39a6e4ef371ca` |
 
 Validation:
 

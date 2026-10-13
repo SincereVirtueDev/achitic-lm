@@ -8,7 +8,7 @@ Release type: patch documentation and package refresh
 
 - Added `ISO_TECHNICAL_SPEC.md` to the local release package.
 - Added this `RELEASE_NOTES.md` file to make asset changes explicit.
-- Refreshed package README wording for the planned `nano-v0.1.1` release.
+- Refreshed package README wording for the published `nano-v0.1.1` release.
 - Regenerated `SHA256SUMS` for the expanded asset set.
 
 ## Unchanged
@@ -21,11 +21,11 @@ Release type: patch documentation and package refresh
 - No GGUF or quantized artifact is included or verified.
 - No production, chat-quality, factual-QA or safety-critical claim is made.
 
-## Validation Required Before GitHub Publication
+## Validation Completed Before GitHub Publication
 
 ```bash
 .venv/bin/python -m pytest -q
 sha256sum -c releases/nano/SHA256SUMS
 ```
 
-Nano smoke train and release smoke must also pass before publishing `nano-v0.1.1`.
+Nano smoke train and release smoke passed before publishing `nano-v0.1.1`.

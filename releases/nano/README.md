@@ -20,6 +20,6 @@ It is prepared as the `nano-v0.1.1` patch release before Tiny upgrade work.
 
 Nano is not a useful chat model. It is a CPU pipeline artifact for environment, model, checkpoint, tokenizer, alignment and export-claim guard verification.
 
-The release package is licensed under Apache-2.0. The planned patch tag is `nano-v0.1.1`.
+The release package is licensed under Apache-2.0. The published patch tag is `nano-v0.1.1`.
 
 The v0.1.1 patch scope does not change `nano.pt`, `tokenizer.model`, `tokenizer.vocab` or `configs/nano.json` unless the release task is reclassified as `nano-v0.2.0`.
