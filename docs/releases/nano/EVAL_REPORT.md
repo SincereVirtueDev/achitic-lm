@@ -38,3 +38,31 @@ Xin chao<|reserved_2387|><|reserved_1849|><|reserved_3267|><|reserved_4988|><|re
 ## Quality Claims
 
 No quality, safety, factuality, alignment or benchmark claim is made. The output above is a load/generate smoke result only and includes reserved tokenizer symbols.
+
+## Nano v0.1.1 Candidate Smoke
+
+Status: PASS
+
+Commands/results:
+
+```text
+.venv/bin/python -m pytest -q
+25 passed
+
+.venv/bin/python -m achitic.cli prepare --inputs examples/corpus.txt --out /tmp/achitic-v011-clean.txt
+documents: 6
+
+.venv/bin/python -m achitic.cli encode --input /tmp/achitic-v011-clean.txt --tokenizer /tmp/achitic-v011-sp.model --out /tmp/achitic-v011.bin
+tokens: 131
+```
+
+Checkpoint smoke:
+
+```text
+checkpoint: runs/nano-v0.1.1-smoke.pt
+step: 3
+vocab_size: 8000
+checkpoint_format: 1
+```
+
+This v0.1.1 candidate smoke is still a pipeline check only. It does not change the model-quality claims above.

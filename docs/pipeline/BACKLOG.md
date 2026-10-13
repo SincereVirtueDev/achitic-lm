@@ -8,6 +8,8 @@ Task cụ thể cho mức Nano nằm trong `docs/pipeline/nano/`. Hoàn tất Na
 
 Status: PASS on 2026-10-12. Evidence is recorded in `docs/pipeline/task_nano.md`, `docs/pipeline/nano/07_NANO_CLOSEOUT.md`, `docs/pipeline/01_FOUNDATION_SMOKE.md` and the public Nano release `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`.
 
+Next Nano patch release task: `docs/pipeline/task_nano_vnext.md`. This must be closed before Tiny optimization starts, because v0.1.1 should align public release assets with the current Nano docs.
+
 | ID | Phase | Task | Done when |
 | --- | --- | --- | --- |
 | `FND-001` | 1 | Chuẩn hóa dev environment docs | Có command setup và dependency notes chạy được |
@@ -20,13 +22,17 @@ Status: PASS on 2026-10-12. Evidence is recorded in `docs/pipeline/task_nano.md`
 | `FND-008` | 1 | Alignment CPU tests | SFT mask và DPO logprob pass |
 | `FND-009` | 1 | Export claim guard docs | Docs cấm claim nếu thiếu llama.cpp generation |
 | `NANO-PUB-001` | 1 | Publishable Nano release package | Model card, artifact manifest, checksums, eval report, security note and release smoke pass |
+| `NANO-VNEXT-001` | 1 | Nano v0.1.1 patch release | `task_nano_vnext.md` closed as published/deferred with evidence |
 
 ## P0.5 - Tiny CPU gate
 
-Task cụ thể cho mức Tiny nằm trong `docs/pipeline/tiny/`. Tiny chỉ chạy sau Nano PASS và Data/Tokenizer PASS.
+Task cụ thể cho mức Tiny nằm trong `docs/pipeline/tiny/`. Tiny chỉ chạy sau Nano PASS, Nano vNext closeout và Data/Tokenizer PASS.
+
+Optimization/readiness backlog mới: `docs/pipeline/task_upgrade_tiny.md`. Kết luận hiện tại: Tiny config đã đo được `23,058,944` params nên có thể bắt đầu tối ưu, nhưng chưa được train/publish Tiny cho tới khi Data/Tokenizer PASS và tokenizer vocab khớp config.
 
 | ID | Phase | Task | Done when |
 | --- | --- | --- | --- |
+| `TINY-UPG-001` | Tiny | Nano -> Tiny optimization/readiness | Các blocker về config/tokenizer/data/eval/logging được chốt trong `task_upgrade_tiny.md` |
 | `TINY-CONFIG-001` | Tiny | Calibrate Tiny 20-30M | Param count trong target, không đổi architecture |
 | `TINY-TRAIN-001` | Tiny | Train/eval Tiny CPU | Dùng data/tokenizer đã audit, có metrics/sample/manifest |
 | `TINY-CLOSE-001` | Tiny | Tiny closeout | Tiny PASS và mở khóa Mini/Small scale experiments |

@@ -39,7 +39,7 @@ Không được chuyển sang phase sau nếu phase trước chưa có `Status: 
 
 ## Config reality check
 
-Các nhãn config hiện tại là nominal. Số dưới đây tính theo công thức từ `model.py`, vì môi trường hiện tại chưa có `torch` để instantiate model.
+Các nhãn config hiện tại là nominal. Số dưới đây là baseline đã ghi trong docs; trước khi chốt run phải xác nhận lại bằng `sum(p.numel() for p in model.parameters())` trong môi trường hiện tại.
 
 | Config | Ladder role | Approx params |
 | --- | --- | ---: |

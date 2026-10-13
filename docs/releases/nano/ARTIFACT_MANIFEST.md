@@ -2,6 +2,12 @@
 
 Status: PUBLISHED
 
+Published release: `nano-v0.1.0`
+
+Current local package candidate: `nano-v0.1.1`
+
+Nano v0.1.1 is a planned patch release candidate. It adds release docs and keeps the Nano checkpoint, tokenizer and config unchanged unless the release is reclassified as `nano-v0.2.0`.
+
 ## Source Reference
 
 - Local source snapshot: `/run/media/thanhnd/DATA_LINUX/AchiticLM/achitic-lm`
@@ -27,6 +33,34 @@ Status: PUBLISHED
 | `releases/nano/USAGE_TERMS.md` | `1854` | `f0f01fe4f29f50b2539cd9b83510624749c1e6b7c66bdf109da258cd2ad40c83` |
 
 Checksum manifest: `releases/nano/SHA256SUMS`, `930` bytes.
+
+## Nano v0.1.1 Local Candidate Addendum
+
+The local `releases/nano/` package has been refreshed as a v0.1.1 patch candidate.
+
+Unchanged core artifacts:
+
+| Path | SHA256 |
+| --- | --- |
+| `releases/nano/nano.pt` | `f067c5f9dad26cd78d2d89b9a3347444039d0dda53e8230b351c0a28958e761b` |
+| `releases/nano/tokenizer.model` | `b1dc236a8e22c68a7201fe50dcf6ff150e494b9bea49f5f971400b1a830b0bc6` |
+| `releases/nano/tokenizer.vocab` | `d893d94f665232759a71adcceb4616b3426b97cc952f9d45e5e26c5d35f3588f` |
+| `releases/nano/configs/nano.json` | `802a2968e0b2c70ab1c2531c80cec2f9d46bd79a8e669b491ae74f4b7136be72` |
+
+New or refreshed package docs:
+
+| Path | SHA256 |
+| --- | --- |
+| `releases/nano/README.md` | `5cb82eed0700cf482cd5386ab74f5a26ef67d19a62710ec0bbfbfdd2437511fb` |
+| `releases/nano/ISO_TECHNICAL_SPEC.md` | `2bda1458468b088813da67774ed736afce662bb8c4d1d294e44049d22b158657` |
+| `releases/nano/RELEASE_NOTES.md` | `224a5b436d7a6305948fed3a42c4be1ea6c0cbf3c409f8e8a40db1291dd23bdd` |
+
+Validation:
+
+```text
+sha256sum -c releases/nano/SHA256SUMS
+Result: 12 assets OK
+```
 
 ## Environment
 

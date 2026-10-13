@@ -33,3 +33,23 @@ Published repo: `https://github.com/SincereVirtueDev/achitic-lm`
 Published Nano release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`
 
 Owner decisions are recorded in `docs/releases/nano/PUBLISH_INPUTS.md`.
+
+## Nano v0.1.1 Local Candidate
+
+Status: LOCAL_RELEASE_CANDIDATE
+
+- [x] Planned tag recorded as `nano-v0.1.1`.
+- [x] Patch scope recorded: docs/package refresh only.
+- [x] `ISO_TECHNICAL_SPEC.md` copied into `releases/nano/`.
+- [x] `RELEASE_NOTES.md` added to `releases/nano/`.
+- [x] `releases/nano/README.md` updated for v0.1.1.
+- [x] `releases/nano/SHA256SUMS` regenerated for 12 assets.
+- [x] `sha256sum -c releases/nano/SHA256SUMS` passed.
+- [x] `pytest -q` passed.
+- [x] Nano v0.1.1 smoke train and chat passed.
+- [x] Secret pattern scan found no GitHub token, API key or private key in release docs/assets.
+- [ ] Git commit for v0.1.1 source state exists.
+- [ ] GitHub Release `nano-v0.1.1` created.
+- [ ] v0.1.1 assets uploaded and verified through GitHub API.
+
+Publication remains pending until `NANO-VNEXT-PUBLISH-001` in `docs/pipeline/task_nano_vnext.md`.
