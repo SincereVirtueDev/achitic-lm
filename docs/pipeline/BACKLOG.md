@@ -8,7 +8,7 @@ Task cụ thể cho mức Nano nằm trong `docs/pipeline/nano/`. Hoàn tất Na
 
 Status: PASS on 2026-10-12. Evidence is recorded in `docs/pipeline/task_nano.md`, `docs/pipeline/nano/07_NANO_CLOSEOUT.md`, `docs/pipeline/01_FOUNDATION_SMOKE.md` and the public Nano release `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`.
 
-Next Nano patch release task: `docs/pipeline/task_nano_vnext.md`. This must be closed before Tiny optimization starts, because v0.1.1 should align public release assets with the current Nano docs.
+Nano patch release task: `docs/pipeline/task_nano_vnext.md`. Status: PASS/PUBLISHED as `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1`; Tiny optimization may start, while Tiny train/release still waits for Data/Tokenizer PASS.
 
 | ID | Phase | Task | Done when |
 | --- | --- | --- | --- |
@@ -26,7 +26,7 @@ Next Nano patch release task: `docs/pipeline/task_nano_vnext.md`. This must be c
 
 ## P0.5 - Tiny CPU gate
 
-Task cụ thể cho mức Tiny nằm trong `docs/pipeline/tiny/`. Tiny chỉ chạy sau Nano PASS, Nano vNext closeout và Data/Tokenizer PASS.
+Task cụ thể cho mức Tiny nằm trong `docs/pipeline/tiny/`. Tiny optimization may start after Nano PASS and Nano vNext closeout. Tiny train/release still requires Data/Tokenizer PASS.
 
 Optimization/readiness backlog mới: `docs/pipeline/task_upgrade_tiny.md`. Kết luận hiện tại: Tiny config đã đo được `23,058,944` params nên có thể bắt đầu tối ưu, nhưng chưa được train/publish Tiny cho tới khi Data/Tokenizer PASS và tokenizer vocab khớp config.
 

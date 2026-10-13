@@ -36,14 +36,14 @@ Escalate to `nano-v0.2.0` if any statement below becomes true:
 
 ## Readiness Verdict
 
-Current status: LOCAL_RELEASE_CANDIDATE, NOT_PUBLISHED
+Current status: PUBLISHED
 
 Kết luận:
 
 - Nano v0.1.0 is published and usable as the baseline.
 - Repo docs now include `docs/releases/nano/ISO_TECHNICAL_SPEC.md`, but the public `nano-v0.1.0` release assets do not include this file.
-- Create `nano-v0.1.1` before Tiny optimization so the public Nano release package and local release docs are aligned.
-- Tiny upgrade work must wait until `NANO-VNEXT-CLOSE-001` is PASS.
+- `nano-v0.1.1` is published as the Nano patch release before Tiny optimization.
+- Tiny upgrade work is unblocked for planning/optimization after this closeout. Real Tiny training still waits for Data/Tokenizer PASS.
 
 ## Baseline Evidence
 
@@ -52,23 +52,22 @@ Kết luận:
 | Published Nano release | `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0` | PASS |
 | Release status | GitHub API reports `prerelease: true`, tag `nano-v0.1.0`, target commit `e32a726b3832080f30556af1729581b5e7288dac` | PASS |
 | Existing release assets | `COMMAND_LOG.md`, `INSTALL_USAGE.md`, `LICENSE`, `nano.json`, `nano.pt`, `NOTICE`, `README.md`, `SHA256SUMS`, `tokenizer.model`, `tokenizer.vocab`, `USAGE_TERMS.md` | PASS |
-| Missing desired asset | `ISO_TECHNICAL_SPEC.md` is in repo docs but absent from `nano-v0.1.0` assets | ACTION |
+| Missing desired asset | `ISO_TECHNICAL_SPEC.md` was absent from `nano-v0.1.0` assets and is included in `nano-v0.1.1` | PASS |
 | Nano pipeline | `docs/pipeline/task_nano.md` and `docs/pipeline/nano/07_NANO_CLOSEOUT.md` show Nano PASS | PASS |
 
 ## Progress Dashboard
 
-Overall progress: `[xxxxxxxx--] 80%`
+Overall progress: `[xxxxxxxxxx] 100%`
 
-Backlog progress: `8 / 10`
+Backlog progress: `10 / 10`
 
 Current allowed rows:
 
-- `NANO-VNEXT-PUBLISH-001`
+- none; Nano vNext is closed.
 
 Rows remaining before closeout:
 
-- `NANO-VNEXT-PUBLISH-001`
-- `NANO-VNEXT-CLOSE-001`
+- none.
 
 ```text
 TODO        [ ] not claimed
@@ -128,8 +127,8 @@ PASS        [x] evidence recorded and gate passed
 | [x] | `NANO-VNEXT-SMOKE-001` | Codex | 2026-10-13 | released | Pytest, Nano smoke train and release smoke pass |
 | [x] | `NANO-VNEXT-SEC-001` | Codex | 2026-10-13 | released | Secret/private-data scan and checkpoint safety note pass |
 | [x] | `NANO-VNEXT-RELNOTE-001` | Codex | 2026-10-13 | released | Release notes and asset delta are complete |
-| [~] | `NANO-VNEXT-PUBLISH-001` | Codex | 2026-10-13 | active | GitHub tag/release `nano-v0.1.1` is created or explicitly deferred |
-| [ ] | `NANO-VNEXT-CLOSE-001` |  |  |  | Nano vNext status is closed and Tiny upgrade is unblocked or blocked with reason |
+| [x] | `NANO-VNEXT-PUBLISH-001` | Codex | 2026-10-13 | released | GitHub tag/release `nano-v0.1.1` is created or explicitly deferred |
+| [x] | `NANO-VNEXT-CLOSE-001` | Codex | 2026-10-13 | released | Nano vNext status is closed and Tiny upgrade is unblocked or blocked with reason |
 | [x] | `NANO-VNEXT-AUDIT-001` | Codex | 2026-10-13 | released | Final audit confirms no model-quality overclaim |
 
 ## Stage Board
@@ -143,9 +142,9 @@ PASS        [x] evidence recorded and gate passed
 | [x] | `NANO-VNEXT-SMOKE-001` | `NANO-VNEXT-PKG-001` PASS | evidence docs only | `pytest -q`, Nano smoke train and release smoke pass |
 | [x] | `NANO-VNEXT-SEC-001` | `NANO-VNEXT-PKG-001` PASS | security/checklist docs only | no secrets/private data in assets |
 | [x] | `NANO-VNEXT-RELNOTE-001` | smoke and security PASS | release notes docs/assets | release notes describe patch scope |
-| [~] | `NANO-VNEXT-PUBLISH-001` | all previous rows except close/audit PASS | GitHub tag/release assets | release exists or is explicitly deferred |
+| [x] | `NANO-VNEXT-PUBLISH-001` | all previous rows except close/audit PASS | GitHub tag/release assets | release exists or is explicitly deferred |
 | [x] | `NANO-VNEXT-AUDIT-001` | local candidate ready | audit evidence docs only | no quality/export overclaim |
-| [ ] | `NANO-VNEXT-CLOSE-001` | all previous rows PASS or publish deferred with reason | closeout docs, Tiny blocker notes | Tiny upgrade dependency updated |
+| [x] | `NANO-VNEXT-CLOSE-001` | all previous rows PASS or publish deferred with reason | closeout docs, Tiny blocker notes | Tiny upgrade dependency updated |
 
 ## Task Details
 
@@ -310,12 +309,19 @@ Business objective: publish `nano-v0.1.1` or explicitly defer publication with a
 
 Checklist:
 
-- [ ] Commit release docs/package refresh.
-- [ ] Create tag `nano-v0.1.1` from the committed source state.
-- [ ] Create GitHub release as prerelease unless owner explicitly asks for stable.
-- [ ] Upload all expected assets.
-- [ ] Verify asset list through GitHub API.
-- [ ] Verify release body includes limitations and checksum instructions.
+- [x] Commit release docs/package refresh.
+- [x] Create tag `nano-v0.1.1` from the committed source state.
+- [x] Create GitHub release as prerelease unless owner explicitly asks for stable.
+- [x] Upload all expected assets.
+- [x] Verify asset list through GitHub API.
+- [x] Verify release body includes limitations and checksum instructions.
+
+Evidence:
+
+- Commit: `1eb3c96174a28852a80f701f9ca7995eef55a59b`.
+- Release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1`.
+- Asset count: `13`.
+- Asset names: `COMMAND_LOG.md`, `INSTALL_USAGE.md`, `ISO_TECHNICAL_SPEC.md`, `LICENSE`, `NOTICE`, `README.md`, `RELEASE_NOTES.md`, `SHA256SUMS`, `USAGE_TERMS.md`, `nano.json`, `nano.pt`, `tokenizer.model`, `tokenizer.vocab`.
 
 Blockers:
 
@@ -345,16 +351,22 @@ Business objective: close Nano vNext before reopening Tiny upgrade work.
 
 Checklist:
 
-- [ ] Record final release status: `PUBLISHED`, `DEFERRED`, or `NO_GO`.
-- [ ] If published, record GitHub release URL and tag commit.
-- [ ] If deferred, record exact blocker and next action.
-- [ ] Update `docs/pipeline/task_upgrade_tiny.md`: Tiny may start only after vNext is closed.
-- [ ] Update `docs/pipeline/BACKLOG.md`.
+- [x] Record final release status: `PUBLISHED`, `DEFERRED`, or `NO_GO`.
+- [x] If published, record GitHub release URL and tag commit.
+- [x] If deferred, record exact blocker and next action.
+- [x] Update `docs/pipeline/task_upgrade_tiny.md`: Tiny may start only after vNext is closed.
+- [x] Update `docs/pipeline/BACKLOG.md`.
 
 PASS criteria:
 
 - Nano vNext is closed with evidence.
 - Tiny optimization no longer has an unresolved Nano release drift blocker.
+
+Evidence:
+
+- Final status: `PUBLISHED`.
+- GitHub release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1`.
+- Tiny optimization is unblocked for planning/config/data/memory tasks; Tiny train/release still requires Data/Tokenizer PASS.
 
 ## Handoff Template
 

@@ -1,14 +1,14 @@
 # AchiticLM Nano v0.1.1 Release Plan
 
-Status: PLANNED
+Status: PUBLISHED
 
-Planned tag: `nano-v0.1.1`
+Published tag: `nano-v0.1.1`
 
 Release type: patch release
 
 ## Purpose
 
-Nano v0.1.1 is planned as a documentation and release-package patch before Tiny upgrade work starts. It should align the public Nano release package with the current repo docs, especially the ISO-aligned technical specification.
+Nano v0.1.1 is a documentation and release-package patch before Tiny upgrade work starts. It aligns the public Nano release package with the current repo docs, especially the ISO-aligned technical specification.
 
 This is not a new model-quality release.
 
@@ -76,8 +76,8 @@ Unchanged:
 - No production/chat quality claim.
 - No verified GGUF or quantized artifact.
 
-## Publication Gate
+## Publication
 
-Publish only after `docs/pipeline/task_nano_vnext.md` reaches `NANO-VNEXT-CLOSE-001` with `PUBLISHED` or an explicit owner-approved publication step.
+Published release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1`
 
-Tiny optimization work should wait until this plan is either published or explicitly deferred with a blocker.
+Tiny optimization work may start after `docs/pipeline/task_nano_vnext.md` is closed. Tiny train/release still requires Data/Tokenizer PASS.

@@ -1,6 +1,6 @@
 # AchiticLM Nano v0.1.1 Release Notes
 
-Status: LOCAL_RELEASE_CANDIDATE
+Status: PUBLISHED
 
 Release type: patch documentation and package refresh
 

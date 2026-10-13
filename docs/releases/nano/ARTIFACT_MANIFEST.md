@@ -4,9 +4,9 @@ Status: PUBLISHED
 
 Published release: `nano-v0.1.0`
 
-Current local package candidate: `nano-v0.1.1`
+Latest patch release: `nano-v0.1.1`
 
-Nano v0.1.1 is a planned patch release candidate. It adds release docs and keeps the Nano checkpoint, tokenizer and config unchanged unless the release is reclassified as `nano-v0.2.0`.
+Nano v0.1.1 is a published patch release. It adds release docs and keeps the Nano checkpoint, tokenizer and config unchanged.
 
 ## Source Reference
 
@@ -34,9 +34,9 @@ Nano v0.1.1 is a planned patch release candidate. It adds release docs and keeps
 
 Checksum manifest: `releases/nano/SHA256SUMS`, `930` bytes.
 
-## Nano v0.1.1 Local Candidate Addendum
+## Nano v0.1.1 Patch Release Addendum
 
-The local `releases/nano/` package has been refreshed as a v0.1.1 patch candidate.
+The local `releases/nano/` package has been refreshed as the v0.1.1 patch release package.
 
 Unchanged core artifacts:
 
@@ -51,9 +51,10 @@ New or refreshed package docs:
 
 | Path | SHA256 |
 | --- | --- |
-| `releases/nano/README.md` | `5cb82eed0700cf482cd5386ab74f5a26ef67d19a62710ec0bbfbfdd2437511fb` |
+| `releases/nano/README.md` | `831f9e6f487bab17b09d2f83f81d873d5876994f318a7e376a44f108904f51de` |
 | `releases/nano/ISO_TECHNICAL_SPEC.md` | `2bda1458468b088813da67774ed736afce662bb8c4d1d294e44049d22b158657` |
-| `releases/nano/RELEASE_NOTES.md` | `224a5b436d7a6305948fed3a42c4be1ea6c0cbf3c409f8e8a40db1291dd23bdd` |
+| `releases/nano/RELEASE_NOTES.md` | `d60b031679349c697b4ed982d7102bddf500d7a310624c9c5b0b1fa254a0f99a` |
+| `releases/nano/SHA256SUMS` | `1236fb0fabd6d2a29ae42481dee4e96ee8a0e9c8edd81b1cf13d8740565a58a0` |
 
 Validation:
 

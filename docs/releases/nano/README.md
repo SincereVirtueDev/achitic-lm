@@ -5,7 +5,7 @@ Status: PUBLISHED
 This folder documents the local Nano release package in `releases/nano/`.
 
 - `MODEL_CARD.md`: model card and intended use.
-- `V0_1_1_RELEASE_PLAN.md`: planned Nano v0.1.1 patch release before Tiny upgrade work.
+- `V0_1_1_RELEASE_PLAN.md`: Nano v0.1.1 patch release before Tiny upgrade work.
 - `ISO_TECHNICAL_SPEC.md`: ISO-aligned technical specification and risk/evidence matrix.
 - `ARTIFACT_MANIFEST.md`: artifact paths, sizes, checksums and provenance.
 - `EVAL_REPORT.md`: smoke test evidence.
@@ -17,6 +17,8 @@ This folder documents the local Nano release package in `releases/nano/`.
 
 Published repo: `https://github.com/SincereVirtueDev/achitic-lm`
 
-Published Nano release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`
+Latest published Nano release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1`
 
-Next planned Nano release: `nano-v0.1.1` as a documentation/package patch. See `V0_1_1_RELEASE_PLAN.md`.
+Previous Nano release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`
+
+Nano v0.1.1 is a documentation/package patch. See `V0_1_1_RELEASE_PLAN.md`.

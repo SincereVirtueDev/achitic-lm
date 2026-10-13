@@ -1,9 +1,9 @@
 # AchiticLM Nano Release Package
 
-Status: LOCAL_RELEASE_CANDIDATE
+Status: PUBLISHED
 
 This directory contains local Nano release artifacts for pipeline smoke testing.
-It is prepared as a `nano-v0.1.1` patch release candidate before Tiny upgrade work.
+It is prepared as the `nano-v0.1.1` patch release before Tiny upgrade work.
 
 - `nano.pt`: scratch checkpoint trained for 3 smoke steps.
 - `tokenizer.model`: SentencePiece tokenizer used by the checkpoint.

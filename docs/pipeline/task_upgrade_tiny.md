@@ -10,16 +10,16 @@ Current measured Tiny params: `23,058,944`
 
 Baseline date: 2026-10-13
 
-Business purpose: dùng Nano release đã xuất bản để mở backlog tối ưu/nâng cấp lên level Tiny mà không đổi AchiticLM Core, không dùng pretrained weights, không claim chất lượng khi chưa có data/eval, và không phá các contract của Nano. Backlog này chỉ được claim sau khi Nano vNext trong `docs/pipeline/task_nano_vnext.md` được close.
+Business purpose: dùng Nano release đã xuất bản để mở backlog tối ưu/nâng cấp lên level Tiny mà không đổi AchiticLM Core, không dùng pretrained weights, không claim chất lượng khi chưa có data/eval, và không phá các contract của Nano. Backlog này được mở sau khi Nano vNext trong `docs/pipeline/task_nano_vnext.md` đã close.
 
 ## Readiness Verdict
 
-Status: WAITING_FOR_NANO_VNEXT, NOT_READY_FOR_TINY_PUBLICATION
+Status: READY_FOR_OPTIMIZATION, NOT_READY_FOR_TINY_PUBLICATION
 
 Kết luận ngắn:
 
-- Có thể chuẩn bị kế hoạch tối ưu Tiny vì Nano đã closeout PASS và `configs/tiny.json` nằm trong target 20-30M.
-- Chưa claim implementation rows trong file này cho tới khi `NANO-VNEXT-CLOSE-001` trong `docs/pipeline/task_nano_vnext.md` PASS hoặc bị defer rõ ràng.
+- Có thể bắt đầu tối ưu Tiny vì Nano đã closeout PASS, `nano-v0.1.1` đã published và `configs/tiny.json` nằm trong target 20-30M.
+- Các row có thể claim trước Data/Tokenizer PASS: `UPG-CFG-001`, `UPG-DAT-001`, `UPG-MEM-001`.
 - Chưa được publish Tiny checkpoint vì phase Data/Tokenizer đang `NOT_STARTED`, Tiny hiện dùng `vocab_size=12000` trong khi Nano release tokenizer là `8000`, và train/eval infrastructure chưa có held-out eval, metrics manifest, exact resume hoặc artifact manifest đầy đủ.
 - Không cần sửa `achitic/model.py` cho bước này. Mọi tối ưu trước Tiny phải giữ nguyên Transformer - GQA - RoPE - RMSNorm - SwiGLU.
 
@@ -33,11 +33,11 @@ Kết luận ngắn:
 | Nano local release docs | `docs/releases/nano/*` includes model card, eval report, manifest, security, usage terms and ISO-aligned spec | PASS |
 | Tiny param count | `.venv/bin/python -c "... AchiticLM(Config(**configs/tiny.json)) ..."` returned `23058944` | PASS |
 | Tiny tokenizer compatibility | `configs/tiny.json` uses `vocab_size=12000`; Nano release tokenizer uses `8000` | BLOCKER before Tiny train/release |
-| Nano vNext | `docs/pipeline/task_nano_vnext.md` plans `nano-v0.1.1` patch release | BLOCKER before Tiny optimization |
+| Nano vNext | `nano-v0.1.1` published at `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1` | PASS |
 | Data phase | `docs/pipeline/02_DATA_TOKENIZER.md` closeout is `NOT_STARTED` | BLOCKER before Tiny train/release |
 | Pretrain scale phase | `docs/pipeline/03_PRETRAIN_SCALE.md` closeout is `NOT_STARTED` | BLOCKER before Mini/Small/350M |
 
-Release drift note: the current GitHub release assets do not include `ISO_TECHNICAL_SPEC.md`. Nano vNext must close this drift before Tiny work starts.
+Release drift note: closed by `nano-v0.1.1`, which includes `ISO_TECHNICAL_SPEC.md`.
 
 ## Progress Dashboard
 
@@ -47,7 +47,9 @@ Backlog progress: `1 / 10`
 
 Current allowed rows:
 
-- None in this file until `docs/pipeline/task_nano_vnext.md` is closed.
+- `UPG-CFG-001`
+- `UPG-DAT-001`
+- `UPG-MEM-001`
 
 Rows that must stay locked until dependencies pass:
 
