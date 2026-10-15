@@ -7,3 +7,12 @@ checkpoint produced for the AchiticLM project.
 
 Unless otherwise stated, the project and Nano release artifacts are licensed
 under the Apache License, Version 2.0.
+
+The Nano v0.2.0 scratch-pretraining corpus was derived from the Vietnamese
+Wikipedia 2026-10-01 article dump. Wikipedia text is contributed by Vietnamese
+Wikipedia contributors and is generally available under CC BY-SA 4.0 and GFDL,
+subject to page-level exceptions. The raw and cleaned text is not distributed.
+
+Source and terms:
+https://dumps.wikimedia.org/viwiki/20261001/
+https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use

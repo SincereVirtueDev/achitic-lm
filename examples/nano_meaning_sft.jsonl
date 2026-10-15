@@ -1,0 +1,80 @@
+{"prompt":"<|user|>Giải thích ngắn gọn khái niệm máy học.<|assistant|>","response":"Máy học cho phép máy tính tìm quy luật từ dữ liệu để thực hiện một nhiệm vụ cụ thể."}
+{"prompt":"<|user|>Chất lượng dữ liệu ảnh hưởng thế nào đến quá trình huấn luyện?<|assistant|>","response":"Dữ liệu có chất lượng tốt làm giảm nhiễu và giúp quá trình huấn luyện ổn định hơn."}
+{"prompt":"<|user|>Hãy mô tả công việc của một mô hình xử lý ngôn ngữ.<|assistant|>","response":"Mô hình xử lý ngôn ngữ học các mẫu trong văn bản để dự đoán và tạo chuỗi từ phù hợp."}
+{"prompt":"<|user|>Điều gì làm cho một hệ thống phần mềm đáng tin cậy hơn?<|assistant|>","response":"Một hệ thống đáng tin cậy cần được kiểm thử, theo dõi lỗi và cập nhật có kiểm soát."}
+{"prompt":"<|user|>Vì sao phải kiểm thử chương trình trước khi phát hành?<|assistant|>","response":"Kiểm thử giúp phát hiện lỗi sớm và giảm nguy cơ gây ảnh hưởng đến người sử dụng."}
+{"prompt":"<|user|>Nêu một đặc điểm của tiếng Việt.<|assistant|>","response":"Tiếng Việt sử dụng thanh điệu và chữ viết dựa trên bảng chữ cái Latinh."}
+{"prompt":"<|user|>Máy tính xử lý thông tin theo cách nào?<|assistant|>","response":"Máy tính biểu diễn thông tin thành dữ liệu số rồi thực hiện các phép tính theo chương trình."}
+{"prompt":"<|user|>Thế nào là một phát biểu dễ hiểu?<|assistant|>","response":"Một phát biểu dễ hiểu có chủ ngữ, ý chính rõ ràng và kết thúc trọn vẹn."}
+{"prompt":"<|user|>AchiticLM Nano được tạo ra để làm gì?<|assistant|>","response":"AchiticLM Nano phục vụ nghiên cứu, thử nghiệm pipeline và đánh giá sớm trên phạm vi nhỏ."}
+{"prompt":"<|user|>Người xây dựng mô hình nên chú ý điều gì?<|assistant|>","response":"Người xây dựng mô hình nên kiểm tra dữ liệu, đo kết quả và công bố rõ các giới hạn."}
+{"prompt":"<|user|>Tại sao cần tách dữ liệu đánh giá khỏi dữ liệu học?<|assistant|>","response":"Việc tách dữ liệu giúp kết quả đánh giá phản ánh khả năng khái quát thay vì ghi nhớ mẫu."}
+{"prompt":"<|user|>Tokenizer có vai trò gì trong mô hình ngôn ngữ?<|assistant|>","response":"Tokenizer chuyển văn bản thành các mã số để mô hình có thể tiếp nhận và xử lý."}
+{"prompt":"<|user|>Checkpoint của mô hình chứa thông tin gì?<|assistant|>","response":"Checkpoint lưu trọng số mô hình và có thể kèm trạng thái tối ưu để tiếp tục huấn luyện."}
+{"prompt":"<|user|>Tại sao phải ghi nguồn của tập dữ liệu?<|assistant|>","response":"Ghi nguồn giúp kiểm tra quyền sử dụng, xuất xứ và khả năng tái tạo tập dữ liệu."}
+{"prompt":"<|user|>Thông tin riêng tư nên được xử lý ra sao?<|assistant|>","response":"Thông tin riêng tư cần được loại bỏ hoặc bảo vệ trước khi dữ liệu được sử dụng."}
+{"prompt":"<|user|>Dữ liệu trùng lặp gây vấn đề gì?<|assistant|>","response":"Dữ liệu trùng lặp làm lệch phân phối và khiến mô hình ghi nhớ một số mẫu quá nhiều."}
+{"prompt":"<|user|>Một báo cáo đánh giá tốt cần nêu gì?<|assistant|>","response":"Báo cáo cần nêu phương pháp, dữ liệu, kết quả đo và những giới hạn còn tồn tại."}
+{"prompt":"<|user|>Vì sao không nên dùng mô hình thử nghiệm cho quyết định quan trọng?<|assistant|>","response":"Mô hình thử nghiệm chưa được xác nhận đầy đủ nên có thể tạo ra kết quả sai hoặc thiếu ổn định."}
+{"prompt":"<|user|>Huấn luyện từ đầu có nghĩa là gì?<|assistant|>","response":"Huấn luyện từ đầu bắt đầu với trọng số ngẫu nhiên và học hoàn toàn từ tập dữ liệu được chọn."}
+{"prompt":"<|user|>Tập validation được dùng vào việc gì?<|assistant|>","response":"Tập validation dùng để theo dõi khả năng khái quát trong quá trình huấn luyện."}
+{"prompt":"<|user|>Một câu hoàn chỉnh thường có đặc điểm nào?<|assistant|>","response":"Một câu hoàn chỉnh truyền đạt một ý có thể hiểu được và có dấu kết thúc phù hợp."}
+{"prompt":"<|user|>Tại sao cần giới hạn độ dài văn bản sinh ra?<|assistant|>","response":"Giới hạn độ dài giúp kiểm soát chi phí và giảm nguy cơ mô hình lặp lại nội dung."}
+{"prompt":"<|user|>Hiện tượng lặp khi sinh văn bản là gì?<|assistant|>","response":"Đó là hiện tượng mô hình tạo lại cùng một từ hoặc cụm từ quá nhiều lần."}
+{"prompt":"<|user|>Mô hình nhỏ phù hợp với công việc nào?<|assistant|>","response":"Mô hình nhỏ phù hợp với thử nghiệm nhanh, kiểm tra pipeline và nghiên cứu có giới hạn."}
+{"prompt":"<|user|>Kết quả loss thấp hơn cho biết điều gì?<|assistant|>","response":"Loss thấp hơn cho thấy mô hình dự đoán dữ liệu đánh giá tốt hơn theo hàm đo đang dùng."}
+{"prompt":"<|user|>Vì sao kết quả tự động cần được xem thủ công?<|assistant|>","response":"Kiểm tra thủ công giúp phát hiện câu vô nghĩa mà các quy tắc hình thức có thể bỏ sót."}
+{"prompt":"<|user|>Một nguồn dữ liệu công khai có luôn dùng được không?<|assistant|>","response":"Không, người phát triển vẫn phải kiểm tra giấy phép, quyền riêng tư và điều kiện phân phối."}
+{"prompt":"<|user|>Tại sao cần lưu checksum của artifact?<|assistant|>","response":"Checksum giúp xác nhận artifact không bị thay đổi sau khi được tạo và kiểm tra."}
+{"prompt":"<|user|>Mục tiêu của smoke test là gì?<|assistant|>","response":"Smoke test xác nhận luồng chính hoạt động, nhưng không chứng minh chất lượng tổng quát."}
+{"prompt":"<|user|>Mô hình có thể tạo thông tin sai không?<|assistant|>","response":"Có, mô hình có thể tạo thông tin nghe hợp lý nhưng không chính xác."}
+{"prompt":"<|user|>Nên mô tả giới hạn của model card thế nào?<|assistant|>","response":"Model card nên nêu rõ dữ liệu, phạm vi đánh giá, rủi ro và các cách dùng không được hỗ trợ."}
+{"prompt":"<|user|>Vì sao cần một tập prompt cố định?<|assistant|>","response":"Tập prompt cố định giúp so sánh các checkpoint theo cùng một điều kiện đánh giá."}
+{"prompt":"<|user|>Dữ liệu tiếng Việt cần được chuẩn hóa ra sao?<|assistant|>","response":"Văn bản nên được chuẩn hóa Unicode, làm sạch markup và giữ dấu tiếng Việt chính xác."}
+{"prompt":"<|user|>Tại sao phải kiểm tra kích thước từ vựng?<|assistant|>","response":"Kích thước từ vựng phải khớp giữa tokenizer, cấu hình và trọng số checkpoint."}
+{"prompt":"<|user|>Một pipeline có thể tái tạo cần những gì?<|assistant|>","response":"Pipeline cần lệnh chạy, cấu hình, phiên bản nguồn và checksum của các artifact đầu vào."}
+{"prompt":"<|user|>Dữ liệu đánh giá bị lẫn vào tập học gây hậu quả gì?<|assistant|>","response":"Sự lẫn dữ liệu làm kết quả đánh giá cao giả tạo và không phản ánh khả năng khái quát."}
+{"prompt":"<|user|>Vì sao cần theo dõi tốc độ huấn luyện?<|assistant|>","response":"Theo dõi tốc độ giúp ước lượng chi phí và phát hiện thay đổi hiệu năng bất thường."}
+{"prompt":"<|user|>Khi nào một artifact được xem là đã xác minh?<|assistant|>","response":"Artifact chỉ được xem là đã xác minh khi chính file đó vượt qua các kiểm tra đã công bố."}
+{"prompt":"<|user|>Mô hình Nano có phù hợp cho sản xuất không?<|assistant|>","response":"Không, phiên bản Nano này chỉ dành cho nghiên cứu và kiểm thử sớm, chưa phù hợp cho sản xuất."}
+{"prompt":"<|user|>Cần làm gì trước khi công bố checkpoint?<|assistant|>","response":"Trước khi công bố cần chạy test, kiểm tra giấy phép, quét dữ liệu riêng tư và xác minh checksum."}
+{"prompt":"<|user|>AchiticLM phiên bản nhỏ phục vụ mục tiêu nào?<|assistant|>","response":"AchiticLM Nano phục vụ nghiên cứu, thử nghiệm pipeline và đánh giá sớm trên phạm vi nhỏ."}
+{"prompt":"<|user|>Hãy mô tả ngắn mục tiêu của Nano.<|assistant|>","response":"Nano được xây dựng để kiểm tra pipeline mô hình, không phải để dùng trong sản xuất."}
+{"prompt":"<|user|>Phiên bản Nano hỗ trợ công việc gì?<|assistant|>","response":"Phiên bản Nano hỗ trợ thử nghiệm nhanh quy trình dữ liệu, huấn luyện và suy luận."}
+{"prompt":"<|user|>Hãy viết một phát biểu ngắn về máy học.<|assistant|>","response":"Máy học tìm quy luật trong dữ liệu để thực hiện một nhiệm vụ đã xác định."}
+{"prompt":"<|user|>Nêu ý chính về cách máy học hoạt động.<|assistant|>","response":"Hệ thống máy học cải thiện dự đoán bằng cách học từ các ví dụ dữ liệu."}
+{"prompt":"<|user|>Mô tả máy học trong một câu dễ hiểu.<|assistant|>","response":"Máy học là phương pháp cho phép máy tính rút ra mẫu từ dữ liệu."}
+{"prompt":"<|user|>Hãy nhận xét ngắn về tập dữ liệu dùng để đào tạo model.<|assistant|>","response":"Tập dữ liệu huấn luyện cần đủ sạch, có nguồn rõ ràng và phù hợp với mục tiêu của mô hình."}
+{"prompt":"<|user|>Nêu một yêu cầu đối với dữ liệu dùng khi đào tạo.<|assistant|>","response":"Dữ liệu dùng để đào tạo cần được làm sạch, kiểm tra giấy phép và loại bỏ thông tin riêng tư."}
+{"prompt":"<|user|>Dữ liệu dành cho quá trình học nên có đặc điểm gì?<|assistant|>","response":"Dữ liệu dành cho quá trình học nên đa dạng, hợp lệ và không chứa mẫu đánh giá."}
+{"prompt":"<|user|>Kiểm thử đóng góp gì cho an toàn phần mềm?<|assistant|>","response":"Kiểm thử phần mềm giúp phát hiện lỗi trước khi lỗi đó ảnh hưởng đến người sử dụng."}
+{"prompt":"<|user|>Hãy nêu một nguyên tắc kiểm thử chương trình an toàn.<|assistant|>","response":"Chương trình nên được kiểm thử trong môi trường kiểm soát trước khi phát hành."}
+{"prompt":"<|user|>Viết ngắn gọn về kiểm tra phần mềm trước khi triển khai.<|assistant|>","response":"Kiểm tra trước khi triển khai làm giảm rủi ro lỗi và hành vi ngoài dự kiến."}
+{"prompt":"<|user|>Bộ tách từ làm gì trong pipeline ngôn ngữ?<|assistant|>","response":"Tokenizer biến văn bản thành chuỗi mã token để mô hình xử lý."}
+{"prompt":"<|user|>Hãy nêu chức năng của tokenizer.<|assistant|>","response":"Tokenizer mã hóa văn bản thành token và giải mã token trở lại thành văn bản."}
+{"prompt":"<|user|>Vì sao model cần một tokenizer?<|assistant|>","response":"Model cần tokenizer để chuyển ký tự và từ thành các chỉ số nằm trong từ vựng."}
+{"prompt":"<|user|>Vì sao tập kiểm tra phải độc lập với tập học?<|assistant|>","response":"Tập đánh giá độc lập giúp đo khả năng khái quát thay vì khả năng ghi nhớ dữ liệu học."}
+{"prompt":"<|user|>Điều gì xảy ra nếu mẫu đánh giá xuất hiện trong tập train?<|assistant|>","response":"Kết quả sẽ bị cao giả tạo vì mô hình có thể đã ghi nhớ mẫu đánh giá."}
+{"prompt":"<|user|>Nêu lợi ích của việc giữ riêng validation data.<|assistant|>","response":"Giữ riêng validation data giúp theo dõi mô hình trên dữ liệu chưa dùng để cập nhật trọng số."}
+{"prompt":"<|user|>Cần bảo vệ dữ liệu cá nhân như thế nào?<|assistant|>","response":"Dữ liệu cá nhân cần được loại bỏ, ẩn danh hoặc bảo vệ trước khi xử lý."}
+{"prompt":"<|user|>Hãy nêu một nguyên tắc về quyền riêng tư dữ liệu.<|assistant|>","response":"Không đưa email, số điện thoại hoặc nội dung riêng tư vào corpus khi chưa có quyền sử dụng."}
+{"prompt":"<|user|>Vì sao phải quét thông tin cá nhân trong corpus?<|assistant|>","response":"Quét thông tin cá nhân giúp giảm nguy cơ mô hình ghi nhớ và tiết lộ dữ liệu riêng tư."}
+{"prompt":"<|user|>Điểm yếu của một model đang thử nghiệm là gì?<|assistant|>","response":"Model thử nghiệm có thể sinh câu sai, lặp hoặc không bám sát yêu cầu."}
+{"prompt":"<|user|>Hãy nêu một hạn chế của checkpoint chưa được xác nhận rộng rãi.<|assistant|>","response":"Checkpoint chưa được xác nhận rộng rãi không phù hợp cho quyết định quan trọng hoặc sản xuất."}
+{"prompt":"<|user|>Vì sao bản model thử nghiệm chưa đáng tin hoàn toàn?<|assistant|>","response":"Bản thử nghiệm mới chỉ qua kiểm tra giới hạn nên vẫn có thể tạo nội dung không chính xác."}
+{"prompt":"<|user|>Checksum có tác dụng gì khi phát hành artifact?<|assistant|>","response":"Checksum xác nhận artifact tải về có đúng nội dung đã được kiểm tra hay không."}
+{"prompt":"<|user|>Hãy mô tả ngắn lợi ích của mã băm file.<|assistant|>","response":"Mã băm giúp phát hiện file bị thay đổi hoặc hỏng sau khi được tạo."}
+{"prompt":"<|user|>Tại sao cần đối chiếu checksum trước khi dùng checkpoint?<|assistant|>","response":"Đối chiếu checksum giúp bảo đảm checkpoint đúng phiên bản và không bị sửa đổi."}
+{"prompt":"<|user|>Một câu tiếng Việt rõ nghĩa cần điều gì?<|assistant|>","response":"Một câu rõ nghĩa cần diễn đạt trọn vẹn một ý và tránh lặp từ không cần thiết."}
+{"prompt":"<|user|>Hãy nêu đặc điểm của câu trả lời ngắn tốt.<|assistant|>","response":"Câu trả lời ngắn tốt phải liên quan đến yêu cầu, dễ hiểu và kết thúc đầy đủ."}
+{"prompt":"<|user|>Khi sinh văn bản, model nên tránh lỗi nào?<|assistant|>","response":"Model nên tránh lặp cụm từ, bỏ dở câu và trả lời sai chủ đề."}
+{"prompt":"<|user|>Giới thiệu AchiticLM Nano bằng một câu.<|assistant|>","response":"AchiticLM Nano phục vụ nghiên cứu, thử nghiệm pipeline và đánh giá sớm trên phạm vi nhỏ."}
+{"prompt":"<|user|>Hãy viết một câu ngắn về máy học.<|assistant|>","response":"Máy học tìm quy luật trong dữ liệu để thực hiện một nhiệm vụ đã xác định."}
+{"prompt":"<|user|>Hãy nói một câu về tập dữ liệu huấn luyện.<|assistant|>","response":"Dữ liệu huấn luyện cần đủ sạch, có nguồn rõ ràng và phù hợp với mục tiêu của mô hình."}
+{"prompt":"<|user|>Tóm tắt ngắn mục đích của Nano.<|assistant|>","response":"Nano được xây dựng để kiểm tra pipeline mô hình, không phải để dùng trong sản xuất."}
+{"prompt":"<|user|>Viết một câu về thử nghiệm phần mềm an toàn.<|assistant|>","response":"Kiểm thử phần mềm giúp phát hiện lỗi trước khi lỗi đó ảnh hưởng đến người sử dụng."}
+{"prompt":"<|user|>Giải thích vai trò tokenizer bằng một câu tiếng Việt.<|assistant|>","response":"Tokenizer mã hóa văn bản thành token và giải mã token trở lại thành văn bản."}
+{"prompt":"<|user|>Nêu một lý do phải tách riêng dữ liệu đánh giá.<|assistant|>","response":"Tách riêng dữ liệu đánh giá giúp đo khả năng khái quát thay vì khả năng ghi nhớ."}
+{"prompt":"<|user|>Viết một câu về cách bảo vệ thông tin riêng tư.<|assistant|>","response":"Thông tin riêng tư cần được loại bỏ hoặc bảo vệ trước khi dữ liệu được sử dụng."}
+{"prompt":"<|user|>Nói một giới hạn thường gặp của mô hình thử nghiệm.<|assistant|>","response":"Mô hình thử nghiệm có thể tạo câu sai, lặp hoặc không bám sát yêu cầu."}
+{"prompt":"<|user|>Viết một câu về lợi ích kiểm tra checksum.<|assistant|>","response":"Kiểm tra checksum giúp phát hiện artifact bị thay đổi hoặc hỏng sau khi được tạo."}

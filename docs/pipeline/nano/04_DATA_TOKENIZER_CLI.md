@@ -50,7 +50,7 @@ Make the Nano data path runnable end to end: prepare text, train tokenizer, enco
 python -m pytest -q tests/test_data_tokenizer_cli.py
 python -m pytest -q
 python -m achitic.cli prepare --inputs examples/corpus.txt --out /tmp/achitic-clean.txt
-python -m achitic.cli tokenizer --input /tmp/achitic-clean.txt --prefix /tmp/achitic-sp --vocab 8000
+python -m achitic.cli tokenizer --input /tmp/achitic-clean.txt --prefix /tmp/achitic-sp --vocab 8000 --allow-reserved-padding
 python -m achitic.cli encode --input /tmp/achitic-clean.txt --tokenizer /tmp/achitic-sp.model --out /tmp/achitic.bin
 python -m achitic.train --config configs/nano.json --data /tmp/achitic.bin --steps 3 --batch 1 --accum 1 --out runs/nano.pt
 python -m achitic.cli chat --checkpoint runs/nano.pt --tokenizer /tmp/achitic-sp.model --prompt "Xin chao" --tokens 16
@@ -70,7 +70,7 @@ Files changed: tests/test_data_tokenizer_cli.py; achitic/data.py; achitic/tokeni
 Commands run:
 - .venv/bin/python -m pytest -q tests/test_data_tokenizer_cli.py
 - .venv/bin/python -m achitic.cli prepare --inputs examples/corpus.txt --out /tmp/achitic-closeout-clean.txt
-- .venv/bin/python -m achitic.cli tokenizer --input /tmp/achitic-closeout-clean.txt --prefix /tmp/achitic-closeout-sp --vocab 8000
+- .venv/bin/python -m achitic.cli tokenizer --input /tmp/achitic-closeout-clean.txt --prefix /tmp/achitic-closeout-sp --vocab 8000 --allow-reserved-padding
 - .venv/bin/python -m achitic.cli encode --input /tmp/achitic-closeout-clean.txt --tokenizer /tmp/achitic-closeout-sp.model --out /tmp/achitic-closeout.bin
 - .venv/bin/python -m achitic.train --config configs/nano.json --data /tmp/achitic-closeout.bin --steps 3 --batch 1 --accum 1 --out runs/nano.pt
 - .venv/bin/python -m achitic.cli chat --checkpoint runs/nano.pt --tokenizer /tmp/achitic-closeout-sp.model --prompt "Xin chao" --tokens 16

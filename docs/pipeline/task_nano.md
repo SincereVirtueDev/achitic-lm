@@ -705,7 +705,7 @@ Commands run:
 - sha256sum -c releases/nano/SHA256SUMS
 - .venv/bin/python -m achitic.cli chat --checkpoint releases/nano/nano.pt --tokenizer releases/nano/tokenizer.model --prompt "Xin chao" --tokens 16
 - .venv/bin/python -m pytest -q
-- git --git-dir=/tmp/achitic-lm.git --work-tree=/run/media/thanhnd/DATA_LINUX/AchiticLM/achitic-lm push -u origin main
+- git --git-dir=/tmp/achitic-lm.git --work-tree=<local checkout> push -u origin main
 - GitHub API create repo/release and upload assets
 - GitHub API release asset list verification
 Results:
@@ -908,7 +908,7 @@ Commands run:
 - python -c "import importlib.util; print availability"
 Results:
 - import check failed: ModuleNotFoundError: No module named 'torch'
-- pytest failed: /home/thanhnd/.local/bin/python: No module named pytest
+- pytest failed: <system python>: No module named pytest
 - availability: torch=False, sentencepiece=False, pytest=False
 Artifacts: docs/DEVELOPMENT.md
 Known risks: FND-001 cannot PASS until dependencies are installed and validation commands pass.

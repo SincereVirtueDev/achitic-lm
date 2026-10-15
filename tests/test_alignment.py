@@ -7,6 +7,7 @@ import torch
 from achitic import alignment
 from achitic.alignment import sequence_logprob
 from achitic.model import AchiticLM,Config
+from achitic.train import CHECKPOINT_FORMAT_VERSION,RESUME_SEMANTICS
 
 
 class ResponseOnlyModel(torch.nn.Module):
@@ -96,3 +97,9 @@ def test_sft_main_masks_prompt_targets(monkeypatch,tmp_path):
     assert captured['x'].tolist()==[[1,10,11,12,20,21]]
     assert captured['targets'].tolist()==[[-100,-100,-100,20,21,2]]
     assert out.exists()
+    ck=torch.load(out,map_location='cpu',weights_only=False)
+    assert ck['checkpoint_format']==CHECKPOINT_FORMAT_VERSION
+    assert ck['resume_semantics']==RESUME_SEMANTICS
+    assert ck['stage']=='sft'
+    assert ck['step']==1
+    assert {'model','optimizer','config','rng','numpy_rng','python_rng'} <= set(ck)

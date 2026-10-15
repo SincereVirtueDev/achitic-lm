@@ -9,3 +9,5 @@ runs/
 *.vocab
 *.pt
 *.gguf
+*.safetensors
+=0.4

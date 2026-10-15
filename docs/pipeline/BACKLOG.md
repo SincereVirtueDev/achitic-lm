@@ -10,6 +10,8 @@ Status: PASS on 2026-10-12. Evidence is recorded in `docs/pipeline/task_nano.md`
 
 Nano patch release task: `docs/pipeline/task_nano_vnext.md`. Status: PASS/PUBLISHED as `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1`; Tiny optimization may start, while Tiny train/release still waits for Data/Tokenizer PASS.
 
+Nano audit-fix release task: `docs/pipeline/task_nano_x.md`. Status: PLANNED for `nano-v0.2.0`; it closes exporter, tokenizer, safe-load, train-loop, dataset-warning, KV-cache and release-doc gaps found in `docs/pipeline/ACHITIC_NANO_AUDIT.md` before larger model releases inherit those paths.
+
 | ID | Phase | Task | Done when |
 | --- | --- | --- | --- |
 | `FND-001` | 1 | Chuẩn hóa dev environment docs | Có command setup và dependency notes chạy được |
@@ -23,6 +25,7 @@ Nano patch release task: `docs/pipeline/task_nano_vnext.md`. Status: PASS/PUBLIS
 | `FND-009` | 1 | Export claim guard docs | Docs cấm claim nếu thiếu llama.cpp generation |
 | `NANO-PUB-001` | 1 | Publishable Nano release package | Model card, artifact manifest, checksums, eval report, security note and release smoke pass |
 | `NANO-VNEXT-001` | 1 | Nano v0.1.1 patch release | `task_nano_vnext.md` closed as published/deferred with evidence |
+| `NANO-X-001` | 1 | Nano v0.2.0 audit-fix baseline | `task_nano_x.md` closes audit gaps or records explicit release exclusions |
 
 ## P0.5 - Tiny CPU gate
 

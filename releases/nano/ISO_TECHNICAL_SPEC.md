@@ -4,11 +4,11 @@ Document ID: `ACH-NANO-ISO-TECH-001`
 
 Status: PUBLISHED
 
-Release tag: `nano-v0.1.0`
+Release tag: `nano-v0.1.1`
 
 Repository: `https://github.com/SincereVirtueDev/achitic-lm`
 
-Release package: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`
+Release package: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1`
 
 ## 1. Scope
 
@@ -166,9 +166,9 @@ Configuration constraints:
 
 | Evidence area | Result |
 | --- | --- |
-| Full test suite | `25 passed` |
+| Full test suite | `64 passed, 1 skipped` |
 | Environment baseline | Dependency import and pytest passed |
-| Architecture tests | Forward/backward/generation, causality, RoPE, GQA and tied weights tested |
+| Architecture tests | Forward/backward/generation, causality, RoPE, GQA, KV-cache parity and tied weights tested |
 | Checkpoint tests | Save/load/config/optimizer/RNG and mismatch rejection tested |
 | Data/tokenizer/CLI tests | Cleaning, prepare, TokenDataset, tokenizer special IDs and vocab mismatch tested |
 | Alignment tests | SFT prompt mask and DPO response-only scoring tested |

@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "status": "LOCAL_CORPUS_PREPARED",
+  "source": {
+    "name": "Vietnamese Wikipedia article dump",
+    "url": "https://dumps.wikimedia.org/viwiki/20261001/viwiki-20261001-pages-articles1.xml-p1p832082.bz2",
+    "snapshot_date": "2026-10-01",
+    "filename": "viwiki-20261001-pages-articles1.xml-p1p832082.bz2",
+    "size_bytes": 319249889,
+    "md5": "8ccdb33e3b24dcd44c81e2cbd91fd626",
+    "sha256": "7cdf607f7db4e3f2d95c1732e2288f9d0ed02ebeaa1488cf75d923f5fb89f49d",
+    "license": "CC BY-SA 4.0 and GFDL; page-level exceptions may apply",
+    "terms_url": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+    "attribution": "Vietnamese Wikipedia contributors"
+  },
+  "processing": {
+    "max_sentences": 100000,
+    "eval_ratio": 0.02,
+    "seed": "achitic-nano-meaning-v0.2.0",
+    "near_duplicate_hamming": 3,
+    "fixed_prompts_file": "nano_meaning_prompts.jsonl",
+    "raw_and_cleaned_data_committed": false
+  },
+  "counts": {
+    "articles_seen": 1284,
+    "eval_sentences": 2022,
+    "exact_or_normalized_duplicate": 576,
+    "language_filter": 984,
+    "low_letter_ratio": 483,
+    "markup_residue": 754,
+    "near_duplicate": 12,
+    "no_sentence_terminator": 10068,
+    "non_main_namespace": 1228,
+    "pages_seen": 3577,
+    "privacy_phone_rejected": 288,
+    "privacy_url_stripped": 80,
+    "redirect": 1065,
+    "sentence_candidates": 174097,
+    "too_few_words": 181,
+    "too_long": 2507,
+    "too_short": 42082,
+    "train_sentences": 97978
+  },
+  "privacy": {
+    "method": "regex reject emails/phone-like strings and strip URLs before acceptance",
+    "limitations": "Heuristic scan; it cannot prove that all personal data is absent."
+  },
+  "contamination": {
+    "method": "normalized prompt substring exclusion before split, followed by post-write scan",
+    "post_split_matches": 0
+  },
+  "outputs": {
+    "train_filename": "achitic-nano-meaning-train.txt",
+    "eval_filename": "achitic-nano-meaning-eval.txt",
+    "train_sha256": "7473ac89a976b59f9909d339b52d61685b20f9d4dae72ed550fe9fcfa1a5de22",
+    "eval_sha256": "39e898e350d03be50bbbf16205fa6348733930f67df8af092485f4bc7cc51907"
+  }
+}

@@ -1,0 +1,3 @@
+{"id":"vi-general-001","language":"vi","prompt":"Viết một đoạn ngắn giải thích vì sao dữ liệu sạch quan trọng khi huấn luyện mô hình ngôn ngữ."}
+{"id":"en-general-001","language":"en","prompt":"Explain in two short sentences what a tokenizer does in a language model pipeline."}
+{"id":"code-python-001","language":"code","prompt":"Write a small Python function that returns the sum of a list of numbers."}

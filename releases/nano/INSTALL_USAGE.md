@@ -1,6 +1,7 @@
 # AchiticLM Nano - Install, Configure and Use
 
-This guide is for the `nano-v0.1.0` source zip and release assets.
+This guide is for the Nano source zip and release assets. The latest published
+Nano patch release is `nano-v0.1.1`.
 
 Nano is a 3-step scratch-trained pipeline artifact. It proves that the local
 CPU pipeline works, but it is not a useful chat model and must not be used for
@@ -9,8 +10,8 @@ production, safety-critical decisions or factual claims.
 ## 1. Install From Source Zip
 
 ```bash
-unzip achitic-lm-nano-v0.1.0.zip
-cd achitic-lm-nano-v0.1.0
+unzip achitic-lm-nano-v0.1.1.zip
+cd achitic-lm-nano-v0.1.1
 
 python -m venv .venv
 source .venv/bin/activate
@@ -22,7 +23,7 @@ python -m pytest -q
 Expected test result for the Nano release line:
 
 ```text
-25 passed
+64 passed, 1 skipped
 ```
 
 The source zip contains code, configs, examples and docs. It does not contain
@@ -58,7 +59,8 @@ python -m achitic.cli prepare \
 python -m achitic.cli tokenizer \
   --input /tmp/achitic-clean.txt \
   --prefix /tmp/achitic-sp \
-  --vocab 8000
+  --vocab 8000 \
+  --allow-reserved-padding
 
 python -m achitic.cli encode \
   --input /tmp/achitic-clean.txt \
@@ -86,7 +88,7 @@ The generated text may include reserved tokens. That is expected for Nano.
 
 Download these release assets from:
 
-`https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`
+`https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1`
 
 Required for inference:
 

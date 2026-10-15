@@ -1,170 +1,107 @@
-# AchiticLM Nano - Install, Configure and Use
+# AchiticLM Nano v0.2.0 - Install, Configure And Use
 
-This guide is for the `nano-v0.1.0` source zip and release assets.
-
-Nano is a 3-step scratch-trained pipeline artifact. It proves that the local
-CPU pipeline works, but it is not a useful chat model and must not be used for
-production, safety-critical decisions or factual claims.
+Nano v0.2.0 is a controlled meaning-smoke release. It can produce short
+meaningful sentences for the audited near-domain prompts, but it is not validated
+for general chat, factual QA, safety-critical use or production deployment.
 
 ## 1. Install From Source Zip
 
 ```bash
-unzip achitic-lm-nano-v0.1.0.zip
-cd achitic-lm-nano-v0.1.0
+unzip achitic-lm-nano-v0.2.0.zip
+cd achitic-lm-nano-v0.2.0
 
 python -m venv .venv
 source .venv/bin/activate
 pip install -e '.[dev]'
-
 python -m pytest -q
 ```
 
-Expected test result for the Nano release line:
+Validated release result: `91 passed, 1 skipped`. The skipped test is the optional
+llama.cpp integration test. No GGUF or quantized artifact is included.
 
-```text
-25 passed
-```
+## 2. Download Release Assets
 
-The source zip contains code, configs, examples and docs. It does not contain
-the large generated checkpoint/tokenizer binary assets unless you download them
-from the GitHub Release.
+Release URL:
 
-## 2. Nano Config
-
-Use `configs/nano.json` for the published Nano pipeline.
-
-Important fields:
-
-- `vocab_size`: must match the tokenizer vocabulary size. Nano uses `8000`.
-- `context`: maximum sequence length used by training/inference. Nano uses `128`.
-- `dim`, `layers`, `heads`, `kv_heads`, `ffn_dim`: model size and attention layout.
-- `rope_theta`: RoPE frequency base.
-
-Rules:
-
-- Do not change `vocab_size` unless you also retrain the tokenizer and use a
-  matching checkpoint.
-- `heads % kv_heads` must be `0`.
-- The encoded corpus must contain at least `context + 1` tokens.
-- Bigger configs such as Tiny/50M/1B are not Nano release claims.
-
-## 3. Reproduce Nano Smoke From Source
-
-```bash
-python -m achitic.cli prepare \
-  --inputs examples/corpus.txt \
-  --out /tmp/achitic-clean.txt
-
-python -m achitic.cli tokenizer \
-  --input /tmp/achitic-clean.txt \
-  --prefix /tmp/achitic-sp \
-  --vocab 8000
-
-python -m achitic.cli encode \
-  --input /tmp/achitic-clean.txt \
-  --tokenizer /tmp/achitic-sp.model \
-  --out /tmp/achitic.bin
-
-python -m achitic.train \
-  --config configs/nano.json \
-  --data /tmp/achitic.bin \
-  --steps 3 \
-  --batch 1 \
-  --accum 1 \
-  --out runs/nano.pt
-
-python -m achitic.cli chat \
-  --checkpoint runs/nano.pt \
-  --tokenizer /tmp/achitic-sp.model \
-  --prompt "Xin chao" \
-  --tokens 16
-```
-
-The generated text may include reserved tokens. That is expected for Nano.
-
-## 4. Use Published Nano Checkpoint
-
-Download these release assets from:
-
-`https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.0`
+`https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.2.0`
 
 Required for inference:
 
-- `nano.pt`
+- `nano-fp16.safetensors` or trusted `nano.pt`
 - `tokenizer.model`
+- `nano.json`
 - `SHA256SUMS`
 
-Recommended:
+Recommended documentation:
 
-- `tokenizer.vocab`
-- `nano.json`
-- `USAGE_TERMS.md`
-- `LICENSE`
-- `NOTICE`
+- `MODEL_CARD.md`
+- `EVAL_REPORT.md`
+- `MEANING_SMOKE_REPORT.md`
+- `TRAINING_RUN_MANIFEST.json`
+- `USAGE_TERMS.md`, `LICENSE`, `NOTICE`
 
-Place the assets under `releases/nano/`:
-
-```bash
-mkdir -p releases/nano
-```
-
-After downloading, verify checksums from the repository root:
+Place downloaded files under `releases/nano-v0.2.0/`, then verify them:
 
 ```bash
-sha256sum -c releases/nano/SHA256SUMS
+sha256sum -c releases/nano-v0.2.0/SHA256SUMS
 ```
 
-Run inference smoke:
+The checksum file contains paths relative to the repository root. If assets are
+downloaded into another directory, either preserve that layout or run
+`sha256sum` against each listed artifact manually.
+
+## 3. Run Weights-Only Inference
 
 ```bash
 python -m achitic.cli chat \
-  --checkpoint releases/nano/nano.pt \
-  --tokenizer releases/nano/tokenizer.model \
-  --prompt "Xin chao" \
-  --tokens 16
+  --checkpoint releases/nano-v0.2.0/nano-fp16.safetensors \
+  --tokenizer releases/nano-v0.2.0/tokenizer.model \
+  --prompt "Viết một câu ngắn về học máy." \
+  --tokens 32
 ```
 
-## 5. Optional Benchmark
+## 4. Run Full Checkpoint Inference
 
 ```bash
-python -m achitic.cli benchmark \
-  --checkpoint releases/nano/nano.pt \
-  --tokenizer releases/nano/tokenizer.model
+python -m achitic.cli chat \
+  --checkpoint releases/nano-v0.2.0/nano.pt \
+  --tokenizer releases/nano-v0.2.0/tokenizer.model \
+  --prompt "Tóm tắt mục đích của Nano." \
+  --tokens 32
 ```
 
-Treat this as a local smoke benchmark only. It is not a model quality benchmark.
+The checkpoint stage is `sft`; the CLI automatically applies the Achitic chat
+template. Use `--chat-template none` only for deliberate raw-continuation tests.
 
-## 6. Security Notes
+## 5. Configuration Contract
 
-- `nano.pt` is a PyTorch checkpoint. Only load it from trusted storage after
-  checksum verification.
-- Do not commit `github_token.txt`, `.venv`, `runs/`, `*.pt`, `*.model`,
-  `*.vocab` or `*.gguf`.
-- GGUF export and quantization are not verified for Nano until a pinned
-  llama.cpp load-and-generate test passes for each artifact.
+- Parameters: `4,999,424`.
+- `vocab_size`: `8000`, exactly matching the packaged tokenizer.
+- Special IDs: unknown `0`, BOS `1`, EOS `2`, padding `3`.
+- Context: `128`.
+- Dimensions: hidden `256`, layers `4`, heads `4`, KV heads `2`, FFN `704`.
+- Never combine these weights with another tokenizer or changed config.
+- Tiny uses a separate `12000`-token contract; do not reuse the Nano tokenizer.
 
-## 7. Common Errors
-
-Tokenizer/config mismatch:
-
-```text
-tokenizer vocab size ... does not match checkpoint config vocab_size ...
-```
-
-Use the tokenizer that belongs to the checkpoint, or retrain both together.
-
-Not enough tokens:
-
-```text
-not enough tokens
-```
-
-Use a longer corpus or reduce `context` in a copied config.
-
-Missing dependency:
+## 6. Reproduce The Controlled Report
 
 ```bash
-pip install -e '.[dev]'
+python -m achitic.cli sample-report \
+  --checkpoint releases/nano-v0.2.0/nano.pt \
+  --tokenizer releases/nano-v0.2.0/tokenizer.model \
+  --prompts docs/eval/nano_meaning_prompts.jsonl \
+  --tokens 32 --device cpu --chat-template auto \
+  --out /tmp/achitic-nano-v0.2.0-samples.jsonl
 ```
 
-Run from an activated virtual environment.
+The recorded result is `10/10` automatic and manual PASS. The SFT set contains
+close intent paraphrases, so this is a near-domain smoke and not a broad benchmark.
+
+## 7. Security And Limitations
+
+- Prefer safetensors for inference.
+- Load `nano.pt` only from trusted storage after checksum verification.
+- The model can hallucinate, repeat, misunderstand requests or produce unsafe text.
+- Post-SFT held-out loss is worse than the pre-SFT checkpoint; see `EVAL_REPORT.md`.
+- Do not claim GGUF or quantization verification for this release.
+- Do not commit credentials, private data, checkpoints or tokenizer binaries.

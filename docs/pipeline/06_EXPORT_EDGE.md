@@ -38,9 +38,21 @@ Phase này chỉ PASS khi có evidence:
 ```bash
 python scripts/export_gguf.py --checkpoint runs/nano.pt --tokenizer /tmp/achitic-sp.model --out runs/nano-f16.gguf
 /path/to/llama-cli -m runs/nano-f16.gguf -p "Xin chao" -n 16 --temp 0
-bash scripts/quantize.sh /path/to/llama-quantize runs/nano-f16.gguf runs/nano-q4.gguf
+LLAMA_CPP_DIR=/path/to/pinned-llama.cpp scripts/quantize.sh runs/nano-f16.gguf runs/nano-q4.gguf Q4_K_M --checkpoint runs/nano.pt --tokenizer /tmp/achitic-sp.model
 /path/to/llama-cli -m runs/nano-q4.gguf -p "Xin chao" -n 16 --temp 0
 ```
+
+## Quantization policy
+
+`scripts/quantize.sh` is the required wrapper for Q8/Q6/Q4 release candidates. It must:
+
+- invoke the pinned `llama-quantize`,
+- record the quantization log,
+- detect fallback lines such as tensors downgraded from K-quant because a shape is incompatible,
+- run `scripts/verify_gguf.py` against the exact quantized artifact,
+- fail when fallback or parity thresholds fail, unless `--allow-experimental` is explicitly used.
+
+Artifacts produced with `--allow-experimental` are local experiments only. A release manifest may list a quantized artifact as supported only when it includes the exact file checksum, quantization log, fallback summary, `verify_gguf.py` report, llama.cpp commit and load-and-generate output for that same file.
 
 ## Suggested split cho nhiều model
 

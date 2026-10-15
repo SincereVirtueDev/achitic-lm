@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "status": "PROJECT_AUTHORED_SFT_USED",
+  "path": "examples/nano_meaning_sft.jsonl",
+  "rows": 80,
+  "sha256": "137b16d28261f2f8c8ac29791f307e14e999f442ebd5b1bb378b2a8230a5b6cc",
+  "source": "Self-authored synthetic instruction/response pairs for AchiticLM",
+  "license": "Apache-2.0",
+  "third_party_or_private_data": false,
+  "fixed_prompts_path": "docs/eval/nano_meaning_prompts.jsonl",
+  "fixed_prompts_sha256": "0c9fb59f9d1a1ace5f7a0d216e83421e253960a5a6ae05b2147900d7b45fe49f",
+  "exact_normalized_fixed_prompt_matches": 0,
+  "scope": "Controlled in-domain instruction behavior only"
+}

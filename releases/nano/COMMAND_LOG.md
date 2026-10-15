@@ -4,7 +4,7 @@ Status: READY_FOR_GITHUB_PUBLICATION
 
 Date: 2026-10-12
 
-Source snapshot: local Git repository initialized with work tree `/run/media/thanhnd/DATA_LINUX/AchiticLM/achitic-lm`; GitHub publication target is `SincereVirtueDev/achitic-lm`.
+Source snapshot: repository checkout at publication time; GitHub publication target is `SincereVirtueDev/achitic-lm`.
 
 ## Environment
 
@@ -19,7 +19,7 @@ Source snapshot: local Git repository initialized with work tree `/run/media/tha
 ```bash
 .venv/bin/python -m pytest -q
 .venv/bin/python -m achitic.cli prepare --inputs examples/corpus.txt --out /tmp/achitic-clean.txt
-.venv/bin/python -m achitic.cli tokenizer --input /tmp/achitic-clean.txt --prefix /tmp/achitic-sp --vocab 8000
+.venv/bin/python -m achitic.cli tokenizer --input /tmp/achitic-clean.txt --prefix /tmp/achitic-sp --vocab 8000 --allow-reserved-padding
 .venv/bin/python -m achitic.cli encode --input /tmp/achitic-clean.txt --tokenizer /tmp/achitic-sp.model --out /tmp/achitic.bin
 .venv/bin/python -m achitic.train --config configs/nano.json --data /tmp/achitic.bin --steps 3 --batch 1 --accum 1 --out runs/nano.pt
 .venv/bin/python -m achitic.cli chat --checkpoint runs/nano.pt --tokenizer /tmp/achitic-sp.model --prompt "Xin chao" --tokens 16
@@ -32,7 +32,8 @@ sha256sum releases/nano/nano.pt releases/nano/tokenizer.model releases/nano/toke
 
 ## Results
 
-- Full pytest: `25 passed in 2.82s`.
+- Full pytest at original Nano publication: `25 passed in 2.82s`.
+- Current Nano-X repository validation: `64 passed, 1 skipped`.
 - Prepare: `6` documents from `examples/corpus.txt`.
 - Encode: `131` tokens.
 - Train smoke: `runs/nano.pt`, step `3`.

@@ -1,6 +1,18 @@
 # AchiticLM — from-scratch language-model research repo
 
-**Status:** runnable research foundation; not a pretrained/chat-capable model, and not a production 1B training system. All model weights initialize randomly. PyTorch and SentencePiece are implementation libraries, not sources of pretrained weights.
+**Status:** runnable research foundation with a controlled Nano v0.2.0 meaning-smoke release. It is not a general chat model or a production 1B training system. All model weights initialize randomly; no pretrained external weights are imported.
+
+## Nano v0.2.0
+
+Nano v0.2.0 is a `4,999,424`-parameter model scratch-trained on a bounded,
+cleaned Vietnamese Wikipedia shard and aligned with `80` project-authored SFT
+rows. It passes `10/10` fixed near-domain sentence prompts, but this is not proof
+of broad Vietnamese fluency, factuality, safety or production readiness.
+
+Release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.2.0`
+
+Use the matching checkpoint, tokenizer and config together. See
+`releases/nano-v0.2.0/README.md` and `INSTALL_USAGE.md`.
 
 ## Quick start (Linux / Python 3.10+)
 For the full Nano development environment contract, see `docs/DEVELOPMENT.md`.
@@ -11,7 +23,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install -e '.[dev]'
 pytest -q
 python -m achitic.cli prepare --inputs examples/corpus.txt --out /tmp/achitic-clean.txt
-python -m achitic.cli tokenizer --input /tmp/achitic-clean.txt --prefix /tmp/achitic-sp --vocab 8000
+python -m achitic.cli tokenizer --input /tmp/achitic-clean.txt --prefix /tmp/achitic-sp --vocab 8000 --allow-reserved-padding
 python -m achitic.cli encode --input /tmp/achitic-clean.txt --tokenizer /tmp/achitic-sp.model --out /tmp/achitic.bin
 python -m achitic.train --config configs/nano.json --data /tmp/achitic.bin --steps 3 --batch 1 --accum 1 --out runs/nano.pt
 python -m achitic.cli chat --checkpoint runs/nano.pt --tokenizer /tmp/achitic-sp.model --prompt 'Xin chào' --tokens 16
@@ -23,7 +35,7 @@ Nano example data is intentionally tiny and **will not produce meaningful langua
 AchiticLM keeps one core architecture across sizes. The intended ladder is Nano (5-10M, pipeline test), Tiny (20-30M, basic CPU language learning), Mini (~50M), Small (~150M), 350M-class and 1B-class. See `docs/pipeline/00_MODEL_LADDER.md`.
 
 ## License and Nano usage
-AchiticLM source code, documentation, example corpus, tokenizer artifacts and scratch-trained Nano checkpoint are released under Apache-2.0 unless stated otherwise. See `LICENSE`, `NOTICE` and `docs/releases/nano/USAGE_TERMS.md`.
+AchiticLM source code, documentation, project-authored examples, tokenizer artifacts and released Nano model artifacts are provided under Apache-2.0 unless stated otherwise. Nano v0.2.0 pretraining used Vietnamese Wikipedia text under its source terms; attribution and source details are in `NOTICE` and the v0.2.0 dataset card.
 
 Nano is intended for research, education, development, pipeline smoke testing and early experimentation. Do not use it for safety-critical applications, unsupported factual claims, high-stakes decisions or production deployment without appropriate validation.
 

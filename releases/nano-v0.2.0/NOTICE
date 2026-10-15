@@ -1,0 +1,21 @@
+AchiticLM
+Copyright 2026 SincereVirtueDev
+
+AchiticLM source code, documentation, configuration, project-authored SFT data,
+tokenizer artifacts and released model artifacts are provided under the Apache
+License, Version 2.0, unless otherwise stated.
+
+The Nano v0.2.0 scratch-pretraining corpus was derived from the Vietnamese
+Wikipedia 2026-10-01 article dump. Wikipedia text is contributed by Vietnamese
+Wikipedia contributors and is generally available under the Creative Commons
+Attribution-ShareAlike 4.0 International License and the GNU Free Documentation
+License, subject to page-level exceptions.
+
+Source:
+https://dumps.wikimedia.org/viwiki/20261001/
+
+Terms and attribution information:
+https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use
+https://vi.wikipedia.org/wiki/Wikipedia:B%E1%BA%A3n_quy%E1%BB%81n
+
+The raw and cleaned Wikipedia text is not distributed in this package.

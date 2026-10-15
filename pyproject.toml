@@ -9,6 +9,7 @@ license = "Apache-2.0"
 dependencies = ["torch>=2.2", "numpy>=1.24", "sentencepiece>=0.2", "pyyaml>=6"]
 [project.optional-dependencies]
 dev = ["pytest>=8"]
-export = ["gguf>=0.10"]
+export = ["gguf>=0.19", "protobuf>=4"]
+release = ["safetensors>=0.4"]
 [tool.setuptools.packages.find]
 include = ["achitic*"]

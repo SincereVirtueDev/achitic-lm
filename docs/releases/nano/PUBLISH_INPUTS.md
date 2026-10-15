@@ -7,7 +7,7 @@ can move from `BLOCKED` to `PASS`.
 
 ## Required Owner Inputs
 
-- [x] GitHub fine-grained token present locally in `github_token.txt`: yes, redacted
+- [x] GitHub publication credential availability was confirmed by the owner outside release artifacts.
 - [x] GitHub owner or organization: `SincereVirtueDev`
 - [x] New GitHub repository name: `achitic-lm`
 - [x] Repository visibility: `public`
@@ -20,7 +20,7 @@ can move from `BLOCKED` to `PASS`.
 - [x] Intended usage note: research, education, development, pipeline smoke testing, experimentation and early-stage Nano evaluation; not validated for production
 - [x] Prohibited usage note: safety-critical applications, unsupported factual claims, high-stakes decisions or production deployment without appropriate validation
 - [x] Whether to include `releases/nano/nano.pt` in Git history, Git LFS, or GitHub Release asset: GitHub Release asset
-- [x] Confirm that no credential, token, private dataset or private file should be published: yes
+- [x] Confirm that no credential, private dataset or private file should be published: yes
 
 ## Recommended Defaults
 
@@ -33,13 +33,12 @@ These are only defaults for review. Do not apply them until the owner confirms.
 - Code license: Apache-2.0
 - Checkpoint license: Apache-2.0
 
-## Token Handling
+## Credential Handling
 
-Do not commit `github_token.txt`.
+Do not commit local publication credentials.
 
-The file is currently ignored by `.gitignore`, but publication should still run
-with a token from an environment variable or an authenticated GitHub CLI session.
-Never paste the token into release notes, command logs, issues, commits or docs.
+Publication should run with an authenticated GitHub CLI session or another approved local credential flow.
+Never paste credentials into release notes, command logs, issues, commits or docs.
 
 ## Publish Gate
 

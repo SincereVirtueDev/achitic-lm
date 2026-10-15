@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "status": "RELEASE_ARTIFACT",
+  "model": "AchiticLM Nano v0.2.0",
+  "initialization": "scratch",
+  "pretrained_external_weights": false,
+  "device": "cpu",
+  "compute_dtype": "fp32",
+  "config_sha256": "802a2968e0b2c70ab1c2531c80cec2f9d46bd79a8e669b491ae74f4b7136be72",
+  "tokenizer_sha256": "26c8b92336b85b26f8bdc3020496ce7c328e42c61ac322a03c85c9955a1ee50d",
+  "pretraining": {
+    "total_steps": 5000,
+    "batch": 16,
+    "context": 128,
+    "token_budget": 10240000,
+    "unique_train_target_tokens": 3502080,
+    "approximate_corpus_passes": 2.92,
+    "pre_sft_heldout_loss": 3.990061510334844,
+    "pre_sft_heldout_perplexity": 54.05821439993229,
+    "train_token_sha256": "1d887de48dd3668bf676c80eab87158954cc6ee726f6345ef50bb6283cffd900",
+    "eval_token_sha256": "f10a8955d539da691b4f3bdca5f1a6d23a0e4f94ba9d97000b3f0dc10cf7620b"
+  },
+  "alignment": {
+    "stage": "sft",
+    "steps": 800,
+    "learning_rate": 0.00005,
+    "rows": 80,
+    "data_sha256": "137b16d28261f2f8c8ac29791f307e14e999f442ebd5b1bb378b2a8230a5b6cc",
+    "post_sft_heldout_loss": 4.547020834217901,
+    "post_sft_heldout_perplexity": 94.35090221706895,
+    "heldout_tokens": 73600
+  },
+  "checkpoint": {
+    "filename": "nano.pt",
+    "checkpoint_format": 1,
+    "recorded_step": 800,
+    "stage": "sft",
+    "sha256": "91159067702c945c08fbd245f82ff1834a31e8aff77cc27920f11572315270b9",
+    "weights_only_sha256": "b945ecc7a608a85d5dda4b15cd7c7f7ce0dfc4f3b9508fda524c9b0ff6f88afd"
+  }
+}

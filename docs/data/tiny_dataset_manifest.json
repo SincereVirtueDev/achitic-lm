@@ -1,0 +1,151 @@
+{
+  "schema_version": "0.1",
+  "manifest_id": "achiticlm-tiny-phase2-data-v0",
+  "status": "BLOCKED_NO_APPROVED_TINY_CORPUS",
+  "last_updated": "2026-10-13",
+  "owner": "SincereVirtueDev",
+  "target_model": "tiny",
+  "target_config": "configs/tiny.json",
+  "dataset_card": "docs/DATASET_CARD.md",
+  "gate_doc": "docs/data/TINY_DATA_GATE.md",
+  "tokenizer_contract": {
+    "type": "sentencepiece_bpe",
+    "vocab_size": 12000,
+    "byte_fallback": true,
+    "special_ids": {
+      "unk": 0,
+      "bos": 1,
+      "eos": 2,
+      "pad": 3
+    },
+    "nano_tokenizer_reuse_allowed": false
+  },
+  "source_policy": {
+    "reject_if_missing_provenance": true,
+    "reject_if_unclear_license": true,
+    "reject_private_or_personal_data": true,
+    "reject_credentials_or_tokens": true,
+    "allowed_release_without_extra_review": false
+  },
+  "normalization_policy": {
+    "unicode": "NFC",
+    "remove_nul": true,
+    "collapse_spaces_and_tabs": true,
+    "trim": true
+  },
+  "privacy_scan_rules": [
+    {
+      "id": "PII_EMAIL",
+      "kind": "regex",
+      "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+      "action": "drop_or_quarantine_document"
+    },
+    {
+      "id": "PII_PHONE",
+      "kind": "regex",
+      "pattern": "(\\+?\\d[\\d .()\\-]{7,}\\d)",
+      "action": "drop_or_quarantine_document"
+    },
+    {
+      "id": "SECRET_API_KEY",
+      "kind": "regex_set",
+      "patterns": [
+        "(?i)(api[_-]?key|secret|token|password)\\s*[:=]\\s*['\\\"]?[^\\s'\\\"]{12,}",
+        "-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----",
+        "(?i)bearer\\s+[A-Za-z0-9._\\-]{20,}"
+      ],
+      "action": "drop_document_and_review_source"
+    },
+    {
+      "id": "PII_ADDRESS",
+      "kind": "heuristic",
+      "description": "street-address-like private location data",
+      "action": "manual_review_or_quarantine"
+    },
+    {
+      "id": "PRIVATE_CONVERSATION",
+      "kind": "metadata_or_path_rule",
+      "description": "private chats, support tickets, email exports or DM exports",
+      "action": "reject_without_explicit_compatible_rights"
+    }
+  ],
+  "dedup_policy": {
+    "exact_hash": "sha256(normalized_text)",
+    "keep": "first_approved_document",
+    "report_fields": [
+      "source_id",
+      "raw_documents",
+      "kept_documents",
+      "duplicate_documents"
+    ],
+    "near_dedup_required_before_long_training": true,
+    "near_dedup_method": "deterministic_shingle_or_minhash_report"
+  },
+  "split_policy": {
+    "method": "deterministic_hash_bucket",
+    "hash": "sha256(normalized_text)",
+    "train_buckets": "0-9899",
+    "eval_buckets": "9900-9999",
+    "bucket_count": 10000,
+    "eval_must_be_disjoint_from_train": true
+  },
+  "contamination_checks": [
+    {
+      "id": "TRAIN_EVAL_EXACT_DOC_HASH",
+      "method": "intersection(train.normalized_sha256, eval.normalized_sha256)",
+      "required_result": "empty"
+    },
+    {
+      "id": "TRAIN_EVAL_NGRAM_OR_SHINGLE",
+      "method": "deterministic_ngram_or_shingle_overlap_report",
+      "required_result": "reported_before_quality_claim"
+    }
+  ],
+  "approved_tiny_train_sources": [],
+  "approved_tiny_eval_sources": [],
+  "reference_sources": [
+    {
+      "source_id": "achitic-example-corpus-v0",
+      "path": "examples/corpus.txt",
+      "provenance": "self-authored synthetic/example corpus created for AchiticLM",
+      "license": "Apache-2.0 compatible",
+      "rights_owner": "SincereVirtueDev",
+      "language": [
+        "vi"
+      ],
+      "snapshot_date": "2026-10-13",
+      "raw_sha256": "7c1eaf73846dd770ed4d2137f3ca379100bb71e8b753ac99150070293825bac8",
+      "line_count": 6,
+      "word_count": 110,
+      "byte_count": 655,
+      "allowed_use": [
+        "pipeline_smoke",
+        "tokenizer_cli_smoke"
+      ],
+      "disallowed_use": [
+        "tiny_pretraining",
+        "tiny_heldout_eval_quality_claim"
+      ],
+      "privacy_scan_status": "manual_review_no_private_data_intentionally_included",
+      "dedup_status": "smoke_source_only",
+      "contamination_status": "not_applicable_to_tiny_quality_eval"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "TINY_DATA_001",
+      "severity": "blocking",
+      "description": "No approved Tiny train corpus source has been added."
+    },
+    {
+      "id": "TINY_DATA_002",
+      "severity": "blocking",
+      "description": "No approved Tiny held-out eval source has been added."
+    },
+    {
+      "id": "TINY_TOKENIZER_001",
+      "severity": "blocking",
+      "description": "Tiny tokenizer with vocab_size 12000 has not been trained or audited."
+    }
+  ]
+}

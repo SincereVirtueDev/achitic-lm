@@ -1,9 +1,12 @@
-import json,argparse
+import json,argparse,os,random
 from pathlib import Path
+import numpy as np
 import torch
 from torch.nn import functional as F
 from .model import AchiticLM,Config
 from .tokenizer import Tokenizer
+from .checkpoint import load_weights
+from .train import CHECKPOINT_FORMAT_VERSION,RESUME_SEMANTICS
 
 def sequence_logprob(model,prompt,response,pad=-100):
     # Response-only log probability, conditioned on the prompt.
@@ -13,13 +16,23 @@ def sequence_logprob(model,prompt,response,pad=-100):
     lp=F.log_softmax(logits.float(),dim=-1).gather(-1,targets.unsqueeze(-1)).squeeze(-1)
     return lp[:,len(prompt)-1:].sum(-1)
 
+def save_alignment_checkpoint(path,model,opt,step,cfg,stage):
+    path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
+    temp=path.with_suffix(path.suffix+'.tmp')
+    payload={'checkpoint_format':CHECKPOINT_FORMAT_VERSION,'resume_semantics':RESUME_SEMANTICS,
+      'model':model.cpu().state_dict(),'optimizer':opt.state_dict(),'step':int(step),'config':vars(cfg),
+      'rng':torch.get_rng_state(),'cuda_rng':torch.cuda.get_rng_state_all() if torch.cuda.is_available() else None,
+      'numpy_rng':np.random.get_state(),'python_rng':random.getstate(),'stage':stage}
+    torch.save(payload,temp)
+    os.replace(temp,path)
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--mode',choices=['sft','dpo'],required=True)
     p.add_argument('--checkpoint',required=True);p.add_argument('--tokenizer',required=True)
     p.add_argument('--data',required=True);p.add_argument('--out',required=True)
     p.add_argument('--steps',type=int,default=100);p.add_argument('--lr',type=float,default=1e-5)
-    p.add_argument('--beta',type=float,default=0.1);a=p.parse_args()
-    ck=torch.load(a.checkpoint,map_location='cpu',weights_only=False);cfg=Config(**ck['config'])
+    p.add_argument('--beta',type=float,default=0.1);p.add_argument('--trust-checkpoint',action='store_true');a=p.parse_args()
+    ck=load_weights(a.checkpoint,map_location='cpu',trust_checkpoint=a.trust_checkpoint);cfg=Config(**ck['config'])
     device='cuda' if torch.cuda.is_available() else 'cpu';model=AchiticLM(cfg).to(device)
     model.load_state_dict(ck['model']);model.train();tok=Tokenizer(a.tokenizer)
     ref=None
@@ -28,6 +41,7 @@ def main():
         for par in ref.parameters():par.requires_grad_(False)
     rows=[json.loads(s) for s in Path(a.data).read_text().splitlines() if s.strip()]
     opt=torch.optim.AdamW(model.parameters(),lr=a.lr)
+    completed=0
     for i in range(a.steps):
         row=rows[i%len(rows)];prompt=tok.encode(row['prompt'],add_bos=True)
         if a.mode=='sft':
@@ -46,6 +60,7 @@ def main():
                 rc=sequence_logprob(ref,prompt,good);rr=sequence_logprob(ref,prompt,bad)
             loss=-F.logsigmoid(a.beta*((chosen-rejected)-(rc-rr))).mean()
         opt.zero_grad();loss.backward();torch.nn.utils.clip_grad_norm_(model.parameters(),1.0);opt.step()
+        completed+=1
         if i%10==0:print(i,float(loss.detach()))
-    torch.save({'model':model.cpu().state_dict(),'config':vars(cfg),'stage':a.mode},a.out)
+    save_alignment_checkpoint(a.out,model,opt,completed,cfg,a.mode)
 if __name__=='__main__':main()
