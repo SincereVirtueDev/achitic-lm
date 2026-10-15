@@ -10,7 +10,7 @@ Current measured Tiny params: `23,058,944`
 
 Baseline date: 2026-10-13
 
-Business purpose: dùng Nano release đã xuất bản để mở backlog tối ưu/nâng cấp lên level Tiny mà không đổi AchiticLM Core, không dùng pretrained weights, không claim chất lượng khi chưa có data/eval, và không phá các contract của Nano. Backlog này được mở sau khi Nano vNext trong `docs/pipeline/task_nano_vnext.md` đã close.
+Business purpose: dùng Nano release đã xuất bản để mở backlog tối ưu/nâng cấp lên level Tiny mà không đổi AchiticLM Core, không dùng pretrained weights, không claim chất lượng khi chưa có data/eval, và không phá các contract của Nano. Backlog này được mở sau Nano vNext và kế thừa các implementation guard đã close trong `docs/pipeline/task_nano_x.md`.
 
 ## Readiness Verdict
 
@@ -18,7 +18,7 @@ Status: READY_FOR_OPTIMIZATION, NOT_READY_FOR_TINY_PUBLICATION
 
 Kết luận ngắn:
 
-- Có thể bắt đầu tối ưu Tiny vì Nano đã closeout PASS, `nano-v0.1.1` đã published và `configs/tiny.json` nằm trong target 20-30M.
+- Có thể tiếp tục tối ưu Tiny vì Nano-X đã closeout PASS, `nano-v0.2.0` đã published dạng prerelease và `configs/tiny.json` nằm trong target 20-30M.
 - `UPG-CFG-001`, `UPG-DAT-001`, `UPG-MEM-001`, `UPG-EVAL-001`, `UPG-LOG-001`, `UPG-RESUME-001` và `UPG-PACK-001` đã PASS.
 - Chưa được publish Tiny checkpoint vì phase Data/Tokenizer đang `BLOCKED_NO_APPROVED_TINY_CORPUS`, Tiny hiện dùng `vocab_size=12000` trong khi Nano release tokenizer là `8000`, và release infrastructure chưa có Tiny artifact manifest đầy đủ.
 - Không cần sửa `achitic/model.py` cho bước này. Mọi tối ưu trước Tiny phải giữ nguyên Transformer - GQA - RoPE - RMSNorm - SwiGLU.
@@ -34,10 +34,35 @@ Kết luận ngắn:
 | Tiny param count | `.venv/bin/python -c "... AchiticLM(Config(**configs/tiny.json)) ..."` returned `23058944` | PASS |
 | Tiny tokenizer compatibility | `configs/tiny.json` uses `vocab_size=12000`; Nano release tokenizer uses `8000` | BLOCKER before Tiny train/release |
 | Nano vNext | `nano-v0.1.1` published at `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1` | PASS |
+| Nano-X audit baseline | `nano-v0.2.0` public prerelease; source commit `66ddcf328f73eb55805de5c96f1164812714c5c2`; 19 digest-matched assets | PASS |
+| Shared implementation paths | Prepare/streaming, tokenizer guards, train/eval/logging, safe checkpoint, SFT template metadata, KV-cache and release guards | PASS for inheritance |
 | Data phase | `docs/pipeline/02_DATA_TOKENIZER.md` closeout is `BLOCKED_NO_APPROVED_TINY_CORPUS`; audit plan and manifest exist | BLOCKER before Tiny train/release |
 | Pretrain scale phase | `scripts/model_report.py` exists; `docs/pipeline/03_PRETRAIN_SCALE.md` remains `BLOCKED_WAITING_FOR_DATA_TOKENIZER` | BLOCKER before Mini/Small/350M |
 
-Release drift note: closed by `nano-v0.1.1`, which includes `ISO_TECHNICAL_SPEC.md`.
+Release drift note: latest Nano engineering baseline is `nano-v0.2.0`; previous v0.1.x releases remain historical artifacts.
+
+## Nano-X Inheritance Decision
+
+Tiny may inherit these implementation paths without reopening Nano tasks:
+
+- robust prepare plus bounded-memory tokenizer/encode controls,
+- train schedule, validation, metrics, run manifest and best-checkpoint behavior,
+- held-out eval and deterministic sample-report harness,
+- safe checkpoint loading and weights-only safetensors export,
+- aligned checkpoint stage/template metadata and KV-cache inference,
+- exporter/quantization claim guards and release checksum discipline.
+
+Tiny must not inherit these Nano artifacts as its training contract:
+
+- Nano tokenizer or vocabulary (`8000` versus Tiny `12000`),
+- Nano checkpoint or Nano SFT weights,
+- Nano controlled prompt score as Tiny quality evidence,
+- Nano corpus split as an automatically approved Tiny dataset.
+
+Tiny training remains blocked until Phase 2 records an approved train/eval corpus,
+license/privacy/dedup/contamination evidence, a frozen `12000` tokenizer with IDs
+`unk=0`, `bos=1`, `eos=2`, `pad=3`, and `Status: PASS`. The Nano-X closeout adds
+no new blocker and does not waive any existing blocker.
 
 ## Progress Dashboard
 

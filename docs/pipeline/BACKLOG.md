@@ -10,7 +10,7 @@ Status: PASS on 2026-10-12. Evidence is recorded in `docs/pipeline/task_nano.md`
 
 Nano patch release task: `docs/pipeline/task_nano_vnext.md`. Status: PASS/PUBLISHED as `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.1.1`; Tiny optimization may start, while Tiny train/release still waits for Data/Tokenizer PASS.
 
-Nano audit-fix release task: `docs/pipeline/task_nano_x.md`. Status: PLANNED for `nano-v0.2.0`; it closes exporter, tokenizer, safe-load, train-loop, dataset-warning, KV-cache and release-doc gaps found in `docs/pipeline/ACHITIC_NANO_AUDIT.md` before larger model releases inherit those paths.
+Nano audit-fix release task: `docs/pipeline/task_nano_x.md`. Status: PASS/PUBLISHED as public prerelease `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.2.0`; all original and merged-addendum rows pass. Larger models may inherit the audited implementation paths, but each model remains gated by its own data/tokenizer, training, evaluation and release contract.
 
 | ID | Phase | Task | Done when |
 | --- | --- | --- | --- |
@@ -31,7 +31,7 @@ Nano audit-fix release task: `docs/pipeline/task_nano_x.md`. Status: PLANNED for
 
 Task cụ thể cho mức Tiny nằm trong `docs/pipeline/tiny/`. Tiny optimization may start after Nano PASS and Nano vNext closeout. Tiny train/release still requires Data/Tokenizer PASS.
 
-Optimization/readiness backlog mới: `docs/pipeline/task_upgrade_tiny.md`. Kết luận hiện tại: Tiny config đã đo được `23,058,944` params nên có thể bắt đầu tối ưu, nhưng chưa được train/publish Tiny cho tới khi Data/Tokenizer PASS và tokenizer vocab khớp config.
+Optimization/readiness backlog mới: `docs/pipeline/task_upgrade_tiny.md`. Kết luận hiện tại sau Nano v0.2.0: Tiny config đã đo được `23,058,944` params và tooling dùng chung đã PASS, nhưng chưa được train/publish Tiny cho tới khi Data/Tokenizer PASS và tokenizer `12000` khớp config.
 
 | ID | Phase | Task | Done when |
 | --- | --- | --- | --- |

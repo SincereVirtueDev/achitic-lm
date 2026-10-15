@@ -16,7 +16,7 @@ Business purpose: tạo một version Nano mới để sửa các thiếu sót �
 
 ## Version Decision
 
-Status: PUBLISHED_WAITING_FOR_CLOSEOUT
+Status: CLOSED_PUBLISHED
 
 Default target: `nano-v0.2.0`
 
@@ -35,12 +35,12 @@ Owner override on 2026-10-14: include the real Vietnamese meaning-smoke corpus/t
 
 ## Readiness Verdict
 
-Current status: PUBLISHED_PRERELEASE, WAITING_FOR_CLOSEOUT
+Current status: CLOSED_PUBLISHED_PRERELEASE
 
 Kết luận ngắn:
 
-- Nano v0.1.1 is published, but the audit found exporter, tokenizer, safe-load, train-loop, generation and documentation gaps.
-- A new Nano engineering release is needed before larger model releases depend on the same exporter and training path.
+- Nano v0.2.0 is published as a prerelease with the merged audit fixes and controlled Vietnamese meaning-smoke evidence.
+- Tiny and later models may inherit the verified implementation paths, but not Nano tokenizer, checkpoint or data artifacts.
 - Tiny training remains blocked by Phase 2 Data/Tokenizer, but Tiny tooling should inherit the fixes from this Nano-X backlog.
 - Do not publish GGUF or quantized assets unless the specific artifact has pinned llama.cpp load-and-generate evidence.
 - Do not claim broad Nano language quality. The audited run proves only the controlled near-domain meaning smoke recorded by `NANO-MEAN-001`.
@@ -78,21 +78,17 @@ Audit merge note:
 
 ## Progress Dashboard
 
-Overall progress: `[xxxxxxxxxxxxx-] 93%`
+Overall progress: `[xxxxxxxxxxxxxx] 100%`
 
-Backlog progress: `13 / 14`
+Backlog progress: `14 / 14`
 
 Current allowed rows:
 
-- `NANO-X-CLOSE-001` may record final go/no-go and update next-model gates.
+- None in Nano-X. The next actionable gate is Phase 2 Data/Tokenizer for Tiny.
 
 Rows that must stay locked until dependencies pass:
 
-- `NANO-X-TRAIN-001`, `NANO-X-TOK-001`, `NANO-X-DATAWARN-001` may run after exporter CPU tests pass, but must coordinate on CLI/train file locks.
-- `NANO-X-KVCACHE-001` waits for model CPU tests and must not change training forward semantics.
-- `NANO-X-DOC-001` waits for the implementation rows whose evidence it documents.
-- None. `NANO-X-CLOSE-001` is unlocked.
-- `NANO-X-PKG-001` records the earlier package pass; the refreshed post-supplement package evidence is recorded under `NANO-MEAN-001` and `NANO-X-RETRAIN-001`.
+- None. Nano-X is closed; next-model locks are owned by their own task files.
 
 ```text
 TODO        [ ] not claimed
@@ -181,7 +177,7 @@ Update `Overall progress`, `Backlog progress`, `Current allowed row` and the tas
 | [x] | `NANO-X-PKG-001` | Codex | 2026-10-14 | released | Local `nano-v0.2.0` package has manifest, checksums, safe weights and release notes |
 | [x] | `NANO-MEAN-001` | Codex | 2026-10-15 | released | Real Vietnamese meaning-smoke corpus gates pass and refreshed v0.2.0 artifacts are ready |
 | [x] | `NANO-X-PUBLISH-001` | Codex | 2026-10-15 | released | GitHub release is created or explicitly deferred with reason |
-| [ ] | `NANO-X-CLOSE-001` |  |  |  | Nano-X closeout records go/no-go and updates next-model gates |
+| [x] | `NANO-X-CLOSE-001` | Codex | 2026-10-15 | released | Nano-X closeout records go/no-go and updates next-model gates |
 
 ## Stage Board
 
@@ -200,7 +196,7 @@ Update `Overall progress`, `Backlog progress`, `Current allowed row` and the tas
 | [x] | `NANO-X-PKG-001` | `NANO-X-SMOKE-001` PASS | `releases/nano-v0.2.0/*`, release docs | `sha256sum -c` passes; no secret/private data |
 | [x] | `NANO-MEAN-001` | owner override, approved dataset card | dataset card, approved local corpus metadata, meaning-smoke eval docs, refreshed v0.2.0 package evidence | Real corpus provenance/license/privacy/contamination gates pass; refreshed tokenizer/config/checkpoint are consistent |
 | [x] | `NANO-X-PUBLISH-001` | `NANO-MEAN-001` PASS and refreshed package evidence PASS | release notes/tag/assets | Public release exists or publication is deferred with reason |
-| [ ] | `NANO-X-CLOSE-001` | all previous rows PASS or allowed deferral | closeout docs only | Next-model gates updated with supported evidence |
+| [x] | `NANO-X-CLOSE-001` | all previous rows PASS or allowed deferral | closeout docs only | Next-model gates updated with supported evidence |
 
 ## Task Details
 
@@ -1034,22 +1030,44 @@ Completion evidence:
 
 Business objective: chốt Nano-X để Tiny/Mini/Small/350M/1B agents biết code path nào được phép kế thừa.
 
+Status: PASS
+
+Owner: Codex
+
+Started: 2026-10-15
+
+Finished: 2026-10-15
+
 Checklist:
 
-- [ ] Confirm every previous row is `PASS`, or explicitly accepted as excluded from this release.
-- [ ] Record that the merged audit addendum and `NANO-MEAN-001` are included in the refreshed `nano-v0.2.0` candidate, or explicitly document any remaining exclusion.
-- [ ] Confirm `pytest -q` and Nano smoke pass.
-- [ ] Confirm Tiny shared-path smoke pass or documented blocker.
-- [ ] Update `docs/pipeline/01_FOUNDATION_SMOKE.md` with Nano-X status.
-- [ ] Update `docs/pipeline/task_upgrade_tiny.md` with any new prerequisite that genuinely applies to Tiny training/release.
-- [ ] Record whether Tiny can continue with current blockers unchanged.
-- [ ] Record whether Mini/Small/350M/1B may inherit exporter, safe-load, train-loop and tokenizer behavior.
+- [x] Confirm every previous row is `PASS`, or explicitly accepted as excluded from this release.
+- [x] Record that the merged audit addendum and `NANO-MEAN-001` are included in the refreshed `nano-v0.2.0` candidate, or explicitly document any remaining exclusion.
+- [x] Confirm `pytest -q` and Nano smoke pass.
+- [x] Confirm Tiny shared-path smoke pass or documented blocker.
+- [x] Update `docs/pipeline/01_FOUNDATION_SMOKE.md` with Nano-X status.
+- [x] Update `docs/pipeline/task_upgrade_tiny.md` with any new prerequisite that genuinely applies to Tiny training/release.
+- [x] Record whether Tiny can continue with current blockers unchanged.
+- [x] Record whether Mini/Small/350M/1B may inherit exporter, safe-load, train-loop and tokenizer behavior.
 
 PASS criteria:
 
 - Nano v0.2.0 status is closed as `PUBLISHED`, `DEFERRED`, or `NO_GO`.
 - Full audit closure is not claimed unless the addendum rows are `PASS` or explicitly excluded with next-version ownership.
 - Next-model prerequisites are explicit and do not contradict Phase 2 Data/Tokenizer gates.
+
+Completion evidence:
+
+- Final decision: `PUBLISHED`; all `14 / 14` Nano-X rows and all `6 / 6` merged-audit addendum rows are `PASS`.
+- Public prerelease: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.2.0`; immutable tagged source commit `66ddcf328f73eb55805de5c96f1164812714c5c2`.
+- The release includes the refreshed tokenizer/config/checkpoint, approved Vietnamese meaning-smoke evidence and merged audit fixes. It excludes GGUF and quantized artifacts, so no unsupported llama.cpp or quantization claim is made.
+- `.venv/bin/python -m pytest -q` -> `91 passed, 1 skipped in 67.59s`.
+- Packaged Nano `.pt` and safetensors inference smokes passed and produced matching output on fixed prompts; the controlled meaning gate remains `10 / 10`.
+- `sha256sum -c releases/nano-v0.2.0/SHA256SUMS` -> all `18 / 18` listed files passed.
+- Tiny shared-path smoke with `configs/tiny.json` completed one CPU step: `loss=9.4865`, `lr=0.0003`, `tok/s=596.43`; measured Tiny parameter count is `23,058,944`.
+- Tiny may inherit the exporter, safe checkpoint loading, train-loop, streaming data preparation, validation split, metrics, resume, KV-cache and tokenizer guard implementations.
+- Tiny must not inherit Nano's `8k` tokenizer, token IDs as an artifact contract, checkpoint, corpus split or language-quality conclusions. Tiny training remains blocked by Phase 2 until an approved train/eval corpus and frozen `12k` tokenizer (`unk=0`, `bos=1`, `eos=2`, `pad=3`) pass provenance, license, privacy, deduplication and contamination gates.
+- Mini, Small, 350M and 1B may inherit the same verified tooling paths only. This closeout does not unlock their training or publication gates.
+- Closeout records were updated in `docs/pipeline/01_FOUNDATION_SMOKE.md`, `docs/pipeline/BACKLOG.md` and `docs/pipeline/task_upgrade_tiny.md`.
 
 ## Merged Audit Addendum Board
 

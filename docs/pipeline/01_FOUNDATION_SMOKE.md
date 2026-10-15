@@ -78,3 +78,32 @@ Evidence:
 - Export guard: tests/test_export_guard.py pass; GGUF/quantization remains experimental until pinned llama.cpp load-and-generate
 Notes: Nano is closed as a publishable 3-step scratch pipeline artifact, not as a quality language model. Tiny CPU tasks may start; real Tiny training still depends on audited Data/Tokenizer phase work.
 ```
+
+## Nano-X v0.2.0 Closeout Addendum
+
+```text
+Status: PASS
+Closed by: Codex
+Date: 2026-10-15
+Source commit: 66ddcf328f73eb55805de5c96f1164812714c5c2
+Release: https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.2.0
+Evidence:
+- Public prerelease: 19 assets; tag peels to the source commit; public SHA256SUMS matches local byte-for-byte
+- Full pytest on committed source: 91 passed, 1 skipped
+- Architecture/core: causality, RoPE, GQA, KV-cache and checkpoint loading CPU tests pass
+- Data/tooling: streaming prepare/encode, deterministic split, privacy/dedup/contamination reports and tokenizer guards pass
+- Training: schedule, validation, metrics, best checkpoint, run manifest and explicit non-exact data-order resume semantics pass
+- Nano meaning gate: 10/10 automatic and manual controlled prompts pass; 0/10 reserved-token output
+- Artifact contract: config/tokenizer/checkpoint vocab 8000 and IDs unk=0, bos=1, eos=2, pad=3 match
+- Weights-only contract: safetensors preserves stage=sft and step=800; output matches the full checkpoint on fixed prompts
+- Release integrity: all 19 remote asset names, sizes and GitHub SHA256 digests match local files
+- Export boundary: no GGUF or quantized asset is included; exact llama.cpp verification remains mandatory per future artifact
+Limitations:
+- Nano v0.2.0 is a controlled near-domain meaning smoke, not broad language-quality evidence
+- Post-SFT held-out Wikipedia loss/perplexity (4.5470 / 94.35) is worse than pre-SFT (3.9901 / 54.06)
+Next-model decision:
+- Tiny may inherit audited implementation paths, tests and release guards
+- Tiny must not reuse Nano's 8000-token tokenizer/checkpoint as its 12000-token training contract
+- Tiny train/publication remains blocked until Phase 2 Data/Tokenizer is PASS with an approved corpus, held-out split and frozen 12000-token tokenizer
+- Mini/Small/350M/1B may inherit tooling only; scale/training remains gated by their own data, compute, resume and evaluation requirements
+```
