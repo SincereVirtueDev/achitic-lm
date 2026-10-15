@@ -1,6 +1,6 @@
 # AchiticLM Nano v0.2.0 Release Plan
 
-Status: LOCAL_CANDIDATE_READY_FOR_PUBLISH_TASK
+Status: PUBLISHED_PRERELEASE
 
 Release tag target: `nano-v0.2.0`
 
@@ -37,11 +37,16 @@ It is not a broad language-quality, factuality, safety or production release.
 | Merged audit implementation addendum | PASS | Prepare, stream, config, alignment and quant guards |
 | `NANO-MEAN-001` | PASS | Real-corpus provenance plus `10/10` controlled review |
 | `NANO-X-RETRAIN-001` | PASS | Refreshed coherent tokenizer/config/checkpoint/package |
-| `NANO-X-PUBLISH-001` | TODO | No public tag/release is created by prior rows |
+| `NANO-X-PUBLISH-001` | PASS | Public prerelease has 19 digest-verified assets |
 
 ## Publication Rule
 
-Publish only the exact package that passes `SHA256SUMS`, secret/private-path scan,
-full pytest, full and weights-only sample reports, and checkpoint/tokenizer/config
-consistency checks. Publishing, tagging and uploading remain owned by
-`NANO-X-PUBLISH-001`.
+The exact package passed `SHA256SUMS`, secret/private-path scan, full pytest, full
+and weights-only sample reports, and checkpoint/tokenizer/config consistency
+checks before publication.
+
+Published release:
+
+`https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.2.0`
+
+See `V0_2_0_PUBLICATION.md` for immutable commit, tag, asset and digest evidence.

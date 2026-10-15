@@ -2,9 +2,9 @@
 
 Model slot: `nano`
 
-Current published release: `nano-v0.1.1`
+Current published release: `nano-v0.2.0` (public prerelease)
 
-Next planned release: `nano-v0.2.0`
+Next planned release: not selected; complete Nano-X closeout first
 
 Release type: engineering baseline refresh after Nano audit
 
@@ -16,7 +16,7 @@ Business purpose: tạo một version Nano mới để sửa các thiếu sót �
 
 ## Version Decision
 
-Status: READY_FOR_PUBLICATION_TASK
+Status: PUBLISHED_WAITING_FOR_CLOSEOUT
 
 Default target: `nano-v0.2.0`
 
@@ -35,7 +35,7 @@ Owner override on 2026-10-14: include the real Vietnamese meaning-smoke corpus/t
 
 ## Readiness Verdict
 
-Current status: LOCAL_CANDIDATE_READY_FOR_PUBLICATION_TASK, NOT_PUBLISHED
+Current status: PUBLISHED_PRERELEASE, WAITING_FOR_CLOSEOUT
 
 Kết luận ngắn:
 
@@ -78,20 +78,20 @@ Audit merge note:
 
 ## Progress Dashboard
 
-Overall progress: `[xxxxxxxxxxxx--] 86%`
+Overall progress: `[xxxxxxxxxxxxx-] 93%`
 
-Backlog progress: `12 / 14`
+Backlog progress: `13 / 14`
 
 Current allowed rows:
 
-- `NANO-X-PUBLISH-001` may publish the exact refreshed checksum-verified candidate or record an explicit deferral.
+- `NANO-X-CLOSE-001` may record final go/no-go and update next-model gates.
 
 Rows that must stay locked until dependencies pass:
 
 - `NANO-X-TRAIN-001`, `NANO-X-TOK-001`, `NANO-X-DATAWARN-001` may run after exporter CPU tests pass, but must coordinate on CLI/train file locks.
 - `NANO-X-KVCACHE-001` waits for model CPU tests and must not change training forward semantics.
 - `NANO-X-DOC-001` waits for the implementation rows whose evidence it documents.
-- `NANO-X-CLOSE-001` waits for `NANO-X-PUBLISH-001` to publish or explicitly defer the release.
+- None. `NANO-X-CLOSE-001` is unlocked.
 - `NANO-X-PKG-001` records the earlier package pass; the refreshed post-supplement package evidence is recorded under `NANO-MEAN-001` and `NANO-X-RETRAIN-001`.
 
 ```text
@@ -180,7 +180,7 @@ Update `Overall progress`, `Backlog progress`, `Current allowed row` and the tas
 | [x] | `NANO-X-SMOKE-001` | Codex | 2026-10-14 | released | Full pytest, Nano smoke, Tiny smoke and release-candidate smoke pass |
 | [x] | `NANO-X-PKG-001` | Codex | 2026-10-14 | released | Local `nano-v0.2.0` package has manifest, checksums, safe weights and release notes |
 | [x] | `NANO-MEAN-001` | Codex | 2026-10-15 | released | Real Vietnamese meaning-smoke corpus gates pass and refreshed v0.2.0 artifacts are ready |
-| [~] | `NANO-X-PUBLISH-001` | Codex | 2026-10-15 | 2026-10-16 | GitHub release is created or explicitly deferred with reason |
+| [x] | `NANO-X-PUBLISH-001` | Codex | 2026-10-15 | released | GitHub release is created or explicitly deferred with reason |
 | [ ] | `NANO-X-CLOSE-001` |  |  |  | Nano-X closeout records go/no-go and updates next-model gates |
 
 ## Stage Board
@@ -199,7 +199,7 @@ Update `Overall progress`, `Backlog progress`, `Current allowed row` and the tas
 | [x] | `NANO-X-SMOKE-001` | all implementation rows PASS or explicitly excluded | evidence docs only | `pytest -q`, Nano smoke, Tiny smoke and package smoke pass |
 | [x] | `NANO-X-PKG-001` | `NANO-X-SMOKE-001` PASS | `releases/nano-v0.2.0/*`, release docs | `sha256sum -c` passes; no secret/private data |
 | [x] | `NANO-MEAN-001` | owner override, approved dataset card | dataset card, approved local corpus metadata, meaning-smoke eval docs, refreshed v0.2.0 package evidence | Real corpus provenance/license/privacy/contamination gates pass; refreshed tokenizer/config/checkpoint are consistent |
-| [~] | `NANO-X-PUBLISH-001` | `NANO-MEAN-001` PASS and refreshed package evidence PASS | release notes/tag/assets | Public release exists or publication is deferred with reason |
+| [x] | `NANO-X-PUBLISH-001` | `NANO-MEAN-001` PASS and refreshed package evidence PASS | release notes/tag/assets | Public release exists or publication is deferred with reason |
 | [ ] | `NANO-X-CLOSE-001` | all previous rows PASS or allowed deferral | closeout docs only | Next-model gates updated with supported evidence |
 
 ## Task Details
@@ -989,28 +989,46 @@ Completion evidence:
 
 Business objective: publish the new Nano version only after package evidence is complete, or record a clean deferral.
 
-Status: IN_PROGRESS
+Status: PASS
 
 Owner: Codex
 
 Started: 2026-10-15
 
+Finished: 2026-10-15
+
 Checklist:
 
-- [ ] Confirm repo owner/org and release tag.
-- [ ] Confirm code and artifact license.
-- [ ] Confirm no private data/tokens are included.
-- [ ] Confirm whether this release includes GGUF; if yes, cite `NANO-X-LLAMA-001` evidence.
-- [ ] Confirm whether merged audit addendum rows are excluded from this tag or publication is deferred until they pass.
-- [ ] Confirm `NANO-MEAN-001` is included in the refreshed v0.2.0 candidate and cite dataset/license/privacy/contamination evidence.
-- [ ] Create tag `nano-v0.2.0` from the intended source state, or record deferral.
-- [ ] Upload release assets, or record why publish is blocked.
-- [ ] Record release URL or deferral reason.
+- [x] Confirm repo owner/org and release tag.
+- [x] Confirm code and artifact license.
+- [x] Confirm no private data/tokens are included.
+- [x] Confirm whether this release includes GGUF; if yes, cite `NANO-X-LLAMA-001` evidence.
+- [x] Confirm whether merged audit addendum rows are excluded from this tag or publication is deferred until they pass.
+- [x] Confirm `NANO-MEAN-001` is included in the refreshed v0.2.0 candidate and cite dataset/license/privacy/contamination evidence.
+- [x] Create tag `nano-v0.2.0` from the intended source state, or record deferral.
+- [x] Upload release assets, or record why publish is blocked.
+- [x] Record release URL or deferral reason.
 
 PASS criteria:
 
 - Release exists with expected assets and checksums, or publish is explicitly deferred.
 - No model-quality claim is added.
+
+Completion evidence:
+
+- Repository: `https://github.com/SincereVirtueDev/achitic-lm` (public, Apache-2.0).
+- Source commit: `66ddcf328f73eb55805de5c96f1164812714c5c2` on `main`.
+- Annotated tag: `nano-v0.2.0`; peeled tag commit matches the source commit.
+- Release: `https://github.com/SincereVirtueDev/achitic-lm/releases/tag/nano-v0.2.0`.
+- GitHub release ID: `413374113`; published at `2026-10-15T03:09:24Z` as a prerelease.
+- Assets: `19` uploaded and public; all names, sizes and GitHub SHA256 digests match the local package.
+- Public `SHA256SUMS` download matches local byte-for-byte; SHA256 `3ec914f84f7a8739173d8d94bedb9e0fc2faa35b4941788918c692e6f3979432`.
+- Core assets: `nano.pt` SHA256 `91159067702c945c08fbd245f82ff1834a31e8aff77cc27920f11572315270b9`; `nano-fp16.safetensors` SHA256 `b945ecc7a608a85d5dda4b15cd7c7f7ce0dfc4f3b9508fda524c9b0ff6f88afd`.
+- Source Git history excludes checkpoints, tokenizer binaries, safetensors, encoded corpora, local environments and `github_token.txt`.
+- Release includes the complete merged audit addendum and `NANO-MEAN-001` evidence. No GGUF or quantized asset is included.
+- Full tests on the committed tree: `91 passed, 1 skipped`; packaged `.pt` and safetensors inference output matched.
+- Publication record: `docs/releases/nano/V0_2_0_PUBLICATION.md`.
+- Next allowed row: `NANO-X-CLOSE-001`.
 
 ### NANO-X-CLOSE-001 - Closeout And Next-Model Unlock
 
